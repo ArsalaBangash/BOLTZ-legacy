@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_start"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.anyconfusionhere.boltz.Start">
+
+
+    <Button
+        android:id="@+id/startGame"
+        android:textAllCaps="false"
+        android:text="Math Practice"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#FFFFFFFF"
+        android:textSize="30dp"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:background="@drawable/rounded_button"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="155dp"
+        android:onClick="startGame">
+    </Button>
+
+    <Button
+        android:id="@+id/settings"
+        android:textAllCaps="false"
+        android:text="Settings"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#FFFFFFFF"
+        android:textSize="30dp"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:background="@drawable/rounded_button"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:onClick="startSettings">
+    </Button>
+
+    <TextView
+        android:text="βOLTℤ"
+        android:fontFamily="sans-serif-light"
+        android:textSize="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="89dp"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="58dp"
+        android:id="@+id/titleText" />
+
+
+</RelativeLayout>
