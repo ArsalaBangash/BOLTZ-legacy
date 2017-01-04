@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">βOLTℤ</string>
+    <string name="Addition">10</string>
+    <string name="Subtraction">10</string>
+    <string name="Multiplication">8</string>
+    <string name="Division">8</string>
+    <string name="Log">5</string>
+    <string name="Exponents">5</string>
+    <string name="Root">5</string>
+    <string name="Modulus">5</string>
+    <string name="DecimalAddition">8</string>
+    <string name="DecimalSubtraction">8</string>
+
+    <string-array
+        name="BoltsArray">
+        <item>Addition</item>
+        <item>Subtraction</item>
+        <item>Multiplication</item>
+        <item>Division</item>
+        <item>Log</item>
+        <item>Exponents</item>
+        <item>Root</item>
+        <item>Modulus</item>
+        <item>DecimalAddition</item>
+        <item>DecimalSubtraction</item>
+    </string-array>
+
 </resources>

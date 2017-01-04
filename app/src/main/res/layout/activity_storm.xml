@@ -35,7 +35,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <Button
@@ -52,7 +52,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <Button
@@ -69,7 +69,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton" />
+            android:background="@drawable/grid_button_style" />
 
         <ImageButton
             android:id="@+id/backSpace"
@@ -80,7 +80,7 @@
             android:layout_gravity="fill"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             android:src="@drawable/backspace"
             android:layout_rowSpan="1"
             android:onClick="pull" />
@@ -99,7 +99,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <Button
@@ -116,7 +116,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <Button
@@ -133,7 +133,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <Button
@@ -150,7 +150,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <Button
@@ -167,7 +167,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <Button
@@ -184,7 +184,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <Button
@@ -202,7 +202,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <Button
@@ -220,11 +220,11 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
         <ImageButton
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             android:id="@+id/lockIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -252,7 +252,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="85dp"
-            android:background="@drawable/gridbutton"
+            android:background="@drawable/grid_button_style"
             />
 
 

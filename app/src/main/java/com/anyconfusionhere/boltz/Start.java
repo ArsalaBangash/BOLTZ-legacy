@@ -3,6 +3,7 @@ package com.anyconfusionhere.boltz;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 
@@ -13,6 +14,7 @@ public class Start extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
+
     }
 
     /**
@@ -21,7 +23,6 @@ public class Start extends AppCompatActivity {
      */
     public void startGame(View view) {
         Intent speedPracticeIntent = new Intent(Start.this, Storm.class);
-        speedPracticeIntent.putExtra(Intent.EXTRA_TEXT, "Initial");
         startActivity(speedPracticeIntent);
     }
 

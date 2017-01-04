@@ -35,7 +35,6 @@ public class EndScreen extends AppCompatActivity {
      * @param view The Play Again button
      */
     public void playAgain(View view) {
-        playAgainIntent.putExtra(Intent.EXTRA_TEXT, "Initial");
         startActivity(playAgainIntent);
     }
 

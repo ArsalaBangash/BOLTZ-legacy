@@ -2,7 +2,6 @@ package com.anyconfusionhere.boltz;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +14,9 @@ public class Storm extends AppCompatActivity {
     int questions, currentQuestionsAttempts = 0, currentQuestionTimeTaken = 0;
     MediaPlayer correctMP, inCorrectMP;
     Chronometer timer;
-    MathModel mathModel;
-    Intent endScreenIntent, startIntent, factorisationIntent, speedPracticeInit;
+    StormPresenter stormPresenter;
+    StormHandler stormHandler;
+    Intent startIntent, factorisationIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +33,19 @@ public class Storm extends AppCompatActivity {
         timer = (Chronometer) findViewById(R.id.timeTaken);
 
 
-        questions = 3;
-        mathModel = new MathModel(
-                PreferenceManager.getDefaultSharedPreferences(getBaseContext()));
-        currentProblem.setText(mathModel.newProblem());
-        speedPracticeInit = getIntent();
-        if (speedPracticeInit.getStringExtra(Intent.EXTRA_TEXT).equals("Initial")) {
-            timer.start();
-        } else {
-            timer.setBase(speedPracticeInit.getLongExtra("CHRONO_TIME", 0));
+        questions = 8;
+        try {
+            stormHandler = new StormHandler(this);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
+        stormPresenter = new StormPresenter(this);
+        stormHandler.addObserver(stormPresenter);
+        stormHandler.handleBolt();
+
+
         timer.start();
         timer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
 
@@ -51,7 +54,7 @@ public class Storm extends AppCompatActivity {
                 currentQuestionTimeTaken++;
             }
         });
-        endScreenIntent = new Intent(Storm.this, EndScreen.class);
+
         startIntent = new Intent(Storm.this, Start.class);
         factorisationIntent = new Intent(Storm.this, FactorisationBolt.class);
 
@@ -74,10 +77,7 @@ public class Storm extends AppCompatActivity {
 
     public void check(View view) {
         currentQuestionsAttempts++;
-        if (currentAnswer.getText().equals(mathModel.getAnswer())) {
-            if(correctMP.isPlaying()) {
-                correctMP.stop();
-            }
+        if (stormPresenter.checkAnswer(String.valueOf(currentAnswer.getText()))) {
             correctMP.start();
             questions--;
             ReportData.getReportData().inputReportData(
@@ -87,26 +87,20 @@ public class Storm extends AppCompatActivity {
                     String.valueOf(currentQuestionsAttempts));
             currentQuestionsAttempts = 0;
             currentQuestionTimeTaken = 0;
-            currentProblem.setText(mathModel.newProblem());
+            stormHandler.handleBolt();
 
         } else {
             inCorrectMP.start();
         }
 
         if (questions == 0) {
-            String state = speedPracticeInit.getStringExtra(Intent.EXTRA_TEXT);
-            if (state.equals("Initial")) {
                 factorisationIntent.putExtra("CHRONO_TIME", timer.getBase());
                 startActivity(factorisationIntent);
-            } else if (state.equals("Final")){
-                endScreenIntent.putExtra(Intent.EXTRA_TEXT, timer.getContentDescription());
-                startActivity(endScreenIntent);
             }
-        }
         currentAnswer.setText("");
         questionsLeft.setText(Integer.toString(questions));
+        }
 
-    }
 
     public void push(View view) {
 

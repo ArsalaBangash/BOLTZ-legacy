@@ -23,7 +23,7 @@ public class FactorisationBolt extends AppCompatActivity {
     int charactersEntered = 0, questions, currentQuestionsAttempts, currentQuestionTimeTaken;
     private Random rand;
     MediaPlayer correctMP, inCorrectMP;
-    Intent speedPracticeIntent, factorisationInit;
+    Intent factorisationInit, endScreenIntent;
     String answer1, answer2, parsedAnswer;
 
 
@@ -43,12 +43,12 @@ public class FactorisationBolt extends AppCompatActivity {
         questionsLeft = (TextView) findViewById(R.id.questionsLeft);
         timer = (Chronometer) findViewById(R.id.timeTaken);
 
-        questions = 1;
+        questions = 2;
         questionsLeft.setText(String.valueOf(questions));
         timer.start();
         rand = new Random();
         this.newFactorisationProblem();
-        speedPracticeIntent = new Intent(FactorisationBolt.this, Storm.class);
+        endScreenIntent = new Intent(FactorisationBolt.this, EndScreen.class);
         factorisationInit = getIntent();
         timer.setBase(factorisationInit.getLongExtra("CHRONO_TIME", 0));
         timer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
@@ -205,9 +205,8 @@ public class FactorisationBolt extends AppCompatActivity {
             }
 
             if (questions == 0) {
-                speedPracticeIntent.putExtra("CHRONO_TIME", timer.getBase());
-                speedPracticeIntent.putExtra(Intent.EXTRA_TEXT, "Final");
-                startActivity(speedPracticeIntent);
+                endScreenIntent.putExtra(Intent.EXTRA_TEXT, timer.getContentDescription());
+                startActivity(endScreenIntent);
             }
 
         } else {
