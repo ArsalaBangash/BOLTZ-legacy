@@ -14,10 +14,11 @@ import java.util.Observable;
 public class StormHandler extends Observable{
     private SpannableStringBuilder question;
     private String answer;
-    private Bolt bolt;
-    List boltsList = new ArrayList();
+    private List boltsList = new ArrayList();
+    AppCompatActivity stormActivity;
 
-    public StormHandler(AppCompatActivity stormActivity) throws NoSuchFieldException, IllegalAccessException {
+    public StormHandler(AppCompatActivity newStormActivity) throws NoSuchFieldException, IllegalAccessException {
+        stormActivity = newStormActivity;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(stormActivity);
         Resources res = stormActivity.getResources();
         for (String boltString: res.getStringArray(R.array.BoltsArray)) {
@@ -41,7 +42,8 @@ public class StormHandler extends Observable{
 
     public void handleBolt() {
         Collections.shuffle(boltsList);
-        bolt = BoltFactory.createBolt((String) boltsList.get(0));
+        Bolt bolt = BoltFactory.createBolt((String) boltsList.get(0));
+        stormActivity.setContentView(bolt.getLayoutResource());
         question = bolt.produceQuestion();
         answer = bolt.getAnswer();
         this.setChanged();

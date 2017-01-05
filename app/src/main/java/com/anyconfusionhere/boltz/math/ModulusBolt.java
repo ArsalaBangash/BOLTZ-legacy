@@ -2,7 +2,14 @@ package com.anyconfusionhere.boltz.math;
 
 import android.text.SpannableStringBuilder;
 
+import com.anyconfusionhere.boltz.R;
+
 public class ModulusBolt extends Bolt {
+
+    public ModulusBolt() {
+        layoutResource = R.layout.activity_storm;
+    }
+
     @Override
     public SpannableStringBuilder produceQuestion() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();

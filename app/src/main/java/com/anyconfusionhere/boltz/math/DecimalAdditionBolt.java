@@ -2,9 +2,16 @@ package com.anyconfusionhere.boltz.math;
 
 import android.text.SpannableStringBuilder;
 
+import com.anyconfusionhere.boltz.R;
+
 import java.text.DecimalFormat;
 
 public class DecimalAdditionBolt extends Bolt {
+
+    public DecimalAdditionBolt() {
+        layoutResource = R.layout.activity_storm;
+    }
+
     @Override
     public SpannableStringBuilder produceQuestion() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();

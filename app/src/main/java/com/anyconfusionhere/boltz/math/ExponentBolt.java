@@ -5,8 +5,15 @@ import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
 
+import com.anyconfusionhere.boltz.R;
+
 
 public class ExponentBolt extends Bolt {
+
+    public ExponentBolt() {
+        layoutResource = R.layout.activity_storm;
+    }
+
     @Override
     public SpannableStringBuilder produceQuestion() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();

@@ -2,7 +2,14 @@ package com.anyconfusionhere.boltz.math;
 
 import android.text.SpannableStringBuilder;
 
+import com.anyconfusionhere.boltz.R;
+
 public class SubtractionBolt extends Bolt {
+
+    public SubtractionBolt() {
+        layoutResource = R.layout.activity_storm;
+    }
+
     @Override
     public SpannableStringBuilder produceQuestion() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();

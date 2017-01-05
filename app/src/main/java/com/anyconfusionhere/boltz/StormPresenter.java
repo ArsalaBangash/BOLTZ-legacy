@@ -12,7 +12,6 @@ public class StormPresenter implements Observer{
     private SpannableStringBuilder question;
     private String answer;
     private AppCompatActivity storm;
-    TextView currentProblem;
 
     public StormPresenter(AppCompatActivity stormActivity){
         storm = stormActivity;
@@ -20,7 +19,7 @@ public class StormPresenter implements Observer{
     }
 
     public void presentQuestion() {
-        currentProblem = (TextView) storm.findViewById(R.id.currentProblem);
+        TextView currentProblem = (TextView) storm.findViewById(R.id.currentProblem);
         currentProblem.setText(question);
     }
 

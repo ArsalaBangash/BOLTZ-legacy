@@ -3,11 +3,11 @@ package com.anyconfusionhere.boltz.math;
 import android.text.SpannableStringBuilder;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public abstract class Bolt {
     HashMap<Integer,Integer> exponentMap;
+    int layoutResource;
     public Bolt() {
         exponentMap = new HashMap<>();
         exponentMap.put(2,5);
@@ -26,7 +26,9 @@ public abstract class Bolt {
     static Random randomGenerator = new Random();
     static String answertoReturn;
     public abstract SpannableStringBuilder produceQuestion();
-    public String getAnswer(){return answertoReturn;};
+    public String getAnswer(){return answertoReturn;}
+    public int getLayoutResource(){return layoutResource;}
+
 
 
 }

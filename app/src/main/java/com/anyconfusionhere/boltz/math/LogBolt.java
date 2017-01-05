@@ -4,7 +4,14 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 
+import com.anyconfusionhere.boltz.R;
+
 public class LogBolt extends Bolt {
+
+
+    public LogBolt() {
+        layoutResource = R.layout.activity_storm;
+    }
 
     @Override
     public SpannableStringBuilder produceQuestion() {

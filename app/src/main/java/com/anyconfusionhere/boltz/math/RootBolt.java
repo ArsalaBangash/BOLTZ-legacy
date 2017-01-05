@@ -5,8 +5,14 @@ import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
 
+import com.anyconfusionhere.boltz.R;
+
 
 public class RootBolt extends Bolt {
+
+    public RootBolt() {
+        layoutResource = R.layout.activity_storm;
+    }
 
     @Override
     public SpannableStringBuilder produceQuestion() {

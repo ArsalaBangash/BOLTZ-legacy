@@ -2,7 +2,13 @@ package com.anyconfusionhere.boltz.math;
 
 import android.text.SpannableStringBuilder;
 
+import com.anyconfusionhere.boltz.R;
+
 public class AdditionBolt extends Bolt {
+
+    public AdditionBolt() {
+        layoutResource = R.layout.activity_storm;
+    }
 
     public SpannableStringBuilder produceQuestion() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();

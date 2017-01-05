@@ -36,6 +36,9 @@ public class BoltFactory {
         if (boltType.equals("DecimalSubtraction")) {
             return new DecimalSubtractionBolt();
         }
+        if (boltType.equals("Factorization")) {
+            return new FactorizationBolt();
+        }
         return new AdditionBolt();
 
     }

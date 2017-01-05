@@ -8,8 +8,9 @@
     <string name="Exponents">5</string>
     <string name="Root">5</string>
     <string name="Modulus">5</string>
-    <string name="DecimalAddition">8</string>
-    <string name="DecimalSubtraction">8</string>
+    <string name="DecimalAddition">5</string>
+    <string name="DecimalSubtraction">5</string>
+    <string name="Factorization">5</string>
 
     <string-array
         name="BoltsArray">
@@ -23,6 +24,7 @@
         <item>Modulus</item>
         <item>DecimalAddition</item>
         <item>DecimalSubtraction</item>
+        <item>Factorization</item>
     </string-array>
 
 </resources>

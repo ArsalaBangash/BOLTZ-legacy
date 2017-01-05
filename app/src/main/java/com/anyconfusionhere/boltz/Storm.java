@@ -22,17 +22,6 @@ public class Storm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_storm);
-
-        //Initializes TextViews, MediaPlayers, and Chronometer
-        correctMP = MediaPlayer.create(this, R.raw.correct);
-        inCorrectMP = MediaPlayer.create(this, R.raw.incorrect);
-        currentProblem = (TextView) findViewById(R.id.currentProblem);
-        currentAnswer = (TextView) findViewById(R.id.openBracket);
-        questionsLeft = (TextView) findViewById(R.id.questionsLeft);
-        timer = (Chronometer) findViewById(R.id.timeTaken);
-
-
         questions = 8;
         try {
             stormHandler = new StormHandler(this);
@@ -44,6 +33,16 @@ public class Storm extends AppCompatActivity {
         stormPresenter = new StormPresenter(this);
         stormHandler.addObserver(stormPresenter);
         stormHandler.handleBolt();
+
+        //Initializes TextViews, MediaPlayers, and Chronometer
+        correctMP = MediaPlayer.create(this, R.raw.correct);
+        inCorrectMP = MediaPlayer.create(this, R.raw.incorrect);
+        currentProblem = (TextView) findViewById(R.id.currentProblem);
+        currentAnswer = (TextView) findViewById(R.id.openBracket);
+        questionsLeft = (TextView) findViewById(R.id.questionsLeft);
+        timer = (Chronometer) findViewById(R.id.timeTaken);
+
+
 
 
         timer.start();

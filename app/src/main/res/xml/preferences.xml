@@ -7,8 +7,8 @@
         android:key="Addition"
         android:title="Addition"
         android:id="@+id/AdditionPref"
-        android:summaryOn="Addition questions enabled during the Speed Practice Bolt"
-        android:summaryOff="Addition questions disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Addition questions enabled during the Storm"
+        android:summaryOff="Addition questions disabled during the Storm"/>
 
     <SwitchPreference
         android:fontFamily="sans-serif-light"
@@ -16,8 +16,8 @@
         android:key="Subtraction"
         android:title="Subtraction"
         android:id="@+id/SubtractionPref"
-        android:summaryOn="Subtraction questions enabled during the Speed Practice Bolt"
-        android:summaryOff="Subtraction questions disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Subtraction questions enabled during the Storm"
+        android:summaryOff="Subtraction questions disabled during the Storm"/>
 
     <SwitchPreference
         android:fontFamily="sans-serif-light"
@@ -25,8 +25,8 @@
         android:key="Multiplication"
         android:title="Multiplication"
         android:id="@+id/MultiplicationPref"
-        android:summaryOn="Multiplication questions enabled during the Speed Practice Bolt"
-        android:summaryOff="Multiplication questions disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Multiplication questions enabled during the Storm"
+        android:summaryOff="Multiplication questions disabled during the Storm"/>
 
     <SwitchPreference
         android:fontFamily="sans-serif-light"
@@ -34,8 +34,8 @@
         android:key="Division"
         android:title="Division"
         android:id="@+id/DivisionPref"
-        android:summaryOn="Division questions enabled during the Speed Practice Bolt"
-        android:summaryOff="Division questions disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Division questions enabled during the Storm"
+        android:summaryOff="Division questions disabled during the Storm"/>
 
     <SwitchPreference
         android:fontFamily="sans-serif-light"
@@ -43,8 +43,8 @@
         android:key="Log"
         android:title="Logarithms"
         android:id="@+id/LogPref"
-        android:summaryOn="Logarithmic questions enabled during the Speed Practice Bolt"
-        android:summaryOff="Logarithmic questions disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Logarithmic questions enabled during the Storm"
+        android:summaryOff="Logarithmic questions disabled during the Storm"/>
 
     <SwitchPreference
         android:fontFamily="sans-serif-light"
@@ -52,8 +52,8 @@
         android:key="Exponents"
         android:title="Exponents"
         android:id="@+id/ExponentsPref"
-        android:summaryOn="Exponential questions enabled during the Speed Practice Bolt"
-        android:summaryOff="Exponential questions disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Exponential questions enabled during the Storm"
+        android:summaryOff="Exponential questions disabled during the Storm"/>
 
     <SwitchPreference
         android:fontFamily="sans-serif-light"
@@ -61,8 +61,8 @@
         android:key="Root"
         android:title="Roots"
         android:id="@+id/RootPref"
-        android:summaryOn="Root questions enabled during the Speed Practice Bolt"
-        android:summaryOff="Root questions disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Root questions enabled during the Storm"
+        android:summaryOff="Root questions disabled during the Storm"/>
 
     <SwitchPreference
         android:fontFamily="sans-serif-light"
@@ -70,8 +70,8 @@
         android:key="Modulus"
         android:title="Modulus"
         android:id="@+id/ModulusPref"
-        android:summaryOn="Modulus questions enabled during the Speed Practice Bolt"
-        android:summaryOff="Modulus questions disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Modulus questions enabled during the Storm"
+        android:summaryOff="Modulus questions disabled during the Storm"/>
 
     <SwitchPreference
         android:fontFamily="sans-serif-light"
@@ -79,8 +79,8 @@
         android:key="DecimalAddition"
         android:title="Decimal Addition"
         android:id="@+id/DecimalAdditionPref"
-        android:summaryOn="Addition questions involving decimals enabled during the Speed Practice Bolt"
-        android:summaryOff="Addition questions involving decimals disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Addition questions involving decimals enabled during the Storm"
+        android:summaryOff="Addition questions involving decimals disabled during the Storm"/>
 
     <SwitchPreference
         android:fontFamily="sans-serif-light"
@@ -88,7 +88,16 @@
         android:key="DecimalSubtraction"
         android:title="Decimal Subtraction"
         android:id="@+id/DecimalSubtractionPref"
-        android:summaryOn="Subtraction questions involving decimals enabled during the Speed Practice Bolt"
-        android:summaryOff="Subtraction questions involving decimals disabled during the Speed Practice Bolt"/>
+        android:summaryOn="Subtraction questions involving decimals enabled during the Storm"
+        android:summaryOff="Subtraction questions involving decimals disabled during the Storm"/>
+
+    <SwitchPreference
+        android:fontFamily="sans-serif-light"
+        android:defaultValue="true"
+        android:key="Factorization"
+        android:title="Factorization"
+        android:id="@+id/FactorizationPref"
+        android:summaryOn="Factorization questions enabled during the Storm"
+        android:summaryOff="Factorization questions disabled during the Storm"/>
 
 </PreferenceScreen>
