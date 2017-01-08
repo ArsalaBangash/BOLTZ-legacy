@@ -1,8 +1,10 @@
 package com.anyconfusionhere.boltz.math;
 
+import android.app.Fragment;
 import android.text.SpannableStringBuilder;
 
 import com.anyconfusionhere.boltz.R;
+import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
 
 public class ModulusBolt extends Bolt {
 
@@ -19,5 +21,10 @@ public class ModulusBolt extends Bolt {
         spannableStringBuilder.append(Integer.toString(a) + "\uFF05" + Integer.toString(b) + " =");
         answertoReturn = String.valueOf(answer);
         return spannableStringBuilder;
+    }
+
+    @Override
+    public ClassicProblemFragment getLayoutFragment() {
+        return new ClassicProblemFragment();
     }
 }

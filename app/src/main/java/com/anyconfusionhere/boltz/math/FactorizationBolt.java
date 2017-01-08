@@ -1,11 +1,13 @@
 package com.anyconfusionhere.boltz.math;
 
+import android.app.Fragment;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
 
 import com.anyconfusionhere.boltz.R;
+import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -95,6 +97,11 @@ public class FactorizationBolt extends Bolt{
             stringBuilder.setSpan(new RelativeSizeSpan(0.75f), 1, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         return stringBuilder;
+    }
+
+    @Override
+    public ClassicProblemFragment getLayoutFragment() {
+        return null;
     }
 
     public String getParsedAnswer(ArrayList<String> parsedArray) {

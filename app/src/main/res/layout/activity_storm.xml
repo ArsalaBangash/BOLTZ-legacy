@@ -34,7 +34,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -51,7 +51,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -68,7 +68,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style" />
 
         <ImageButton
@@ -98,7 +98,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -115,7 +115,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -132,7 +132,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -149,7 +149,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -166,7 +166,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -183,7 +183,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -201,7 +201,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -219,7 +219,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -251,25 +251,36 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
 
     </GridLayout>
 
-    <TextView
-        android:text="Remaining:"
+    <Chronometer
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/problemsRemainingTextView"
-        android:layout_alignBaseline="@+id/questionsLeft"
-        android:layout_alignBottom="@+id/questionsLeft"
-        android:layout_toLeftOf="@+id/questionsLeft"
-        android:layout_toStartOf="@+id/questionsLeft"
-        android:layout_marginRight="21dp"
-        android:layout_marginEnd="21dp"
-        android:textSize="30dp" />
+        android:textColor="#ed0707"
+        android:textSize="30dp"
+        android:id="@+id/timeTaken"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/timeTaken"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/calculatorGrid"
+        android:id="@+id/problemContainer">
+    </FrameLayout>
 
     <TextView
         android:id="@+id/questionsLeft"
@@ -277,49 +288,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#1a3bc2"
         android:visibility="visible"
-        android:layout_alignParentTop="true"
+        android:textSize="30dp"
+        android:layout_alignBaseline="@+id/problemsRemainingTextView"
+        android:layout_alignBottom="@+id/problemsRemainingTextView"
         android:layout_alignParentRight="true"
-        android:textSize="30dp" />
-
-    <Chronometer
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ed0707"
-        android:textSize="40dp"
-        android:id="@+id/timeTaken"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:id="@+id/currentProblem"
-        android:fontFamily="sans-serif-light"
+        android:text="Questions Left:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12+3"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:visibility="visible"
-        android:textSize="30dp"
-        android:layout_above="@id/calculatorGrid"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="25dp" />
-
-    <TextView
-        android:id="@+id/openBracket"
-        android:fontFamily="sans-serif-light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30dp"
-        android:visibility="visible"
-        android:text=""
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_alignBaseline="@+id/currentProblem"
-        android:layout_alignBottom="@+id/currentProblem"
-        android:layout_toRightOf="@+id/currentProblem"
-        android:layout_toEndOf="@+id/currentProblem" />
+        android:id="@+id/problemsRemainingTextView"
+        android:textSize="25dp"
+        android:layout_alignBaseline="@+id/timeTaken"
+        android:layout_alignBottom="@+id/timeTaken"
+        android:layout_toLeftOf="@+id/questionsLeft"
+        android:layout_toStartOf="@+id/questionsLeft" />
 </RelativeLayout>

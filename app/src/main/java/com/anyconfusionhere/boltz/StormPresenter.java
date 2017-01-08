@@ -8,19 +8,24 @@ import android.widget.TextView;
 import java.util.Observable;
 import java.util.Observer;
 
+import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
+
 public class StormPresenter implements Observer{
-    private SpannableStringBuilder question;
+    public SpannableStringBuilder question;
     private String answer;
     private AppCompatActivity storm;
+    public ClassicProblemFragment problemFragment;
 
     public StormPresenter(AppCompatActivity stormActivity){
         storm = stormActivity;
-
+        problemFragment = new ClassicProblemFragment();
+        storm.getFragmentManager().beginTransaction()
+                .add(R.id.problemContainer, problemFragment)
+                .commit();
     }
 
     public void presentQuestion() {
-        TextView currentProblem = (TextView) storm.findViewById(R.id.currentProblem);
-        currentProblem.setText(question);
+        problemFragment.setQuestion(question);
     }
 
     public boolean checkAnswer(String currentAnswer) {
@@ -32,6 +37,7 @@ public class StormPresenter implements Observer{
         StormHandler stormHandler = (StormHandler) o;
         question = stormHandler.getQuestion();
         answer = stormHandler.getAnswer();
+//        f = stormHandler.getLayoutFragment();
         presentQuestion();
     }
 }

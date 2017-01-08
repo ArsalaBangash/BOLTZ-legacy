@@ -1,8 +1,10 @@
 package com.anyconfusionhere.boltz.math;
 
+import android.app.Fragment;
 import android.text.SpannableStringBuilder;
 
 import com.anyconfusionhere.boltz.R;
+import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
 
 import java.text.DecimalFormat;
 
@@ -21,5 +23,10 @@ public class DivisionBolt extends Bolt {
         spannableStringBuilder.append(new DecimalFormat("#").format(c) + "\u00F7" + Integer.toString(b) + " =");
         answertoReturn = String.valueOf(answer);
         return spannableStringBuilder;
+    }
+
+    @Override
+    public ClassicProblemFragment getLayoutFragment() {
+        return new ClassicProblemFragment();
     }
 }

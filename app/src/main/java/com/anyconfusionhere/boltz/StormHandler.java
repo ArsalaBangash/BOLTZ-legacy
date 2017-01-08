@@ -1,10 +1,13 @@
 package com.anyconfusionhere.boltz;
 
+import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableStringBuilder;
+
+import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
 import com.anyconfusionhere.boltz.math.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,6 +17,7 @@ import java.util.Observable;
 public class StormHandler extends Observable{
     private SpannableStringBuilder question;
     private String answer;
+    private ClassicProblemFragment layoutFragment;
     private List boltsList = new ArrayList();
     AppCompatActivity stormActivity;
 
@@ -40,12 +44,16 @@ public class StormHandler extends Observable{
         return answer;
     }
 
+    public ClassicProblemFragment getLayoutFragment() {
+        return layoutFragment;
+    }
+
     public void handleBolt() {
         Collections.shuffle(boltsList);
         Bolt bolt = BoltFactory.createBolt((String) boltsList.get(0));
-        stormActivity.setContentView(bolt.getLayoutResource());
         question = bolt.produceQuestion();
         answer = bolt.getAnswer();
+        layoutFragment = bolt.getLayoutFragment();
         this.setChanged();
         this.notifyObservers(this);
     }

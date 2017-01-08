@@ -1,8 +1,10 @@
 package com.anyconfusionhere.boltz.math;
 
+import android.app.Fragment;
 import android.text.SpannableStringBuilder;
 
 import com.anyconfusionhere.boltz.R;
+import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
 
 import java.text.DecimalFormat;
 
@@ -25,5 +27,10 @@ public class DecimalAdditionBolt extends Bolt {
         }
         spannableStringBuilder.append(Double.toString(c) + "+" + Double.toString(d) + " =");
         return spannableStringBuilder;
+    }
+
+    @Override
+    public ClassicProblemFragment getLayoutFragment() {
+        return new ClassicProblemFragment();
     }
 }

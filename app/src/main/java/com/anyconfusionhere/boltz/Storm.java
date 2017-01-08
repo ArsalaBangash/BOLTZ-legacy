@@ -1,13 +1,17 @@
 package com.anyconfusionhere.boltz;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.view.Window;
 import android.widget.Chronometer;
 import android.widget.TextView;
+
+import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
 
 public class Storm extends AppCompatActivity {
     TextView currentProblem, currentAnswer, questionsLeft;
@@ -16,32 +20,22 @@ public class Storm extends AppCompatActivity {
     Chronometer timer;
     StormPresenter stormPresenter;
     StormHandler stormHandler;
-    Intent startIntent, factorisationIntent;
+    Intent startIntent, endScreenIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_storm);
         questions = 8;
-        try {
-            stormHandler = new StormHandler(this);
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
         stormPresenter = new StormPresenter(this);
-        stormHandler.addObserver(stormPresenter);
-        stormHandler.handleBolt();
-
         //Initializes TextViews, MediaPlayers, and Chronometer
         correctMP = MediaPlayer.create(this, R.raw.correct);
         inCorrectMP = MediaPlayer.create(this, R.raw.incorrect);
         currentProblem = (TextView) findViewById(R.id.currentProblem);
-        currentAnswer = (TextView) findViewById(R.id.openBracket);
+
         questionsLeft = (TextView) findViewById(R.id.questionsLeft);
         timer = (Chronometer) findViewById(R.id.timeTaken);
-
 
 
 
@@ -55,9 +49,22 @@ public class Storm extends AppCompatActivity {
         });
 
         startIntent = new Intent(Storm.this, Start.class);
-        factorisationIntent = new Intent(Storm.this, FactorisationBolt.class);
+        endScreenIntent = new Intent(Storm.this, EndScreen.class);
 
+    }
 
+    public void onStart() {
+        super.onStart();
+        currentAnswer = stormPresenter.problemFragment.getAnswerView();
+        try {
+            stormHandler = new StormHandler(this);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        stormHandler.addObserver(stormPresenter);
+        stormHandler.handleBolt();
 
     }
 
@@ -80,7 +87,7 @@ public class Storm extends AppCompatActivity {
             correctMP.start();
             questions--;
             ReportData.getReportData().inputReportData(
-                    String.valueOf(currentProblem.getText()).substring(0, currentProblem.getText().length() - 1),
+                    String.valueOf(String.valueOf(stormPresenter.question)).substring(0, stormPresenter.question.length() - 1),
                     String.valueOf(currentAnswer.getText()),
                     String.valueOf(currentQuestionTimeTaken) + "s",
                     String.valueOf(currentQuestionsAttempts));
@@ -93,8 +100,8 @@ public class Storm extends AppCompatActivity {
         }
 
         if (questions == 0) {
-                factorisationIntent.putExtra("CHRONO_TIME", timer.getBase());
-                startActivity(factorisationIntent);
+                endScreenIntent.putExtra(Intent.EXTRA_TEXT, timer.getContentDescription());
+                startActivity(endScreenIntent);
             }
         currentAnswer.setText("");
         questionsLeft.setText(Integer.toString(questions));

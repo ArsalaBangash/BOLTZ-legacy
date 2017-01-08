@@ -34,7 +34,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -51,7 +51,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -68,7 +68,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style" />
 
         <ImageButton
@@ -98,7 +98,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -115,7 +115,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -132,7 +132,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -149,7 +149,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -166,7 +166,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -183,7 +183,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -201,7 +201,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -219,7 +219,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -252,7 +252,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_height="60dp"
             android:background="@drawable/grid_button_style"
             />
 
@@ -260,7 +260,7 @@
     </GridLayout>
 
     <TextView
-        android:text="Remaining:"
+        android:text="Questions Left:"
         android:fontFamily="sans-serif-light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -297,47 +297,6 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/middleBracket"
-        android:fontFamily="sans-serif-light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30dp"
-        android:visibility="visible"
-        android:text=")   ("
-        android:layout_above="@+id/calculatorGrid"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp" />
-
-    <TextView
-        android:id="@+id/openBracket"
-        android:fontFamily="sans-serif-light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30dp"
-        android:visibility="visible"
-        android:text="("
-        android:layout_alignBaseline="@+id/middleBracket"
-        android:layout_alignBottom="@+id/middleBracket"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/endBracket"
-        android:fontFamily="sans-serif-light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30dp"
-        android:visibility="visible"
-        android:text=")"
-        android:layout_alignBaseline="@+id/secondFactorText"
-        android:layout_alignBottom="@+id/secondFactorText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
         android:id="@+id/factoriseLabel"
         android:fontFamily="sans-serif-light"
         android:layout_width="wrap_content"
@@ -350,19 +309,6 @@
         android:layout_below="@+id/timeTaken"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/currentProblem"
-        android:fontFamily="sans-serif-light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:visibility="visible"
-        android:textSize="30dp"
-        android:layout_alignBaseline="@+id/factoriseLabel"
-        android:layout_alignBottom="@+id/factoriseLabel"
-        android:layout_alignLeft="@+id/middleBracket"
-        android:layout_alignStart="@+id/middleBracket" />
 
     <TextView
         android:id="@+id/secondFactorText"
@@ -393,6 +339,60 @@
         android:layout_alignEnd="@+id/timeTaken"
         android:layout_marginRight="12dp"
         android:layout_marginEnd="12dp" />
+
+    <TextView
+        android:id="@+id/currentProblem"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="visible"
+        android:textSize="30dp"
+        android:layout_below="@+id/factoriseLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
+
+    <TextView
+        android:id="@+id/middleBracket"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:visibility="visible"
+        android:text=")   ("
+        android:layout_marginBottom="46dp"
+        android:layout_above="@+id/calculatorGrid"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/endBracket"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:visibility="visible"
+        android:text=")"
+        android:layout_alignBaseline="@+id/secondFactorText"
+        android:layout_alignBottom="@+id/secondFactorText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/openBracket"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:visibility="visible"
+        android:text="("
+        android:layout_alignBaseline="@+id/middleBracket"
+        android:layout_alignBottom="@+id/middleBracket"
+        android:layout_toRightOf="@+id/currentProblem"
+        android:layout_toEndOf="@+id/currentProblem" />
 
 
 

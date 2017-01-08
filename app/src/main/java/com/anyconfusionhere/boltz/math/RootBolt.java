@@ -1,11 +1,13 @@
 package com.anyconfusionhere.boltz.math;
 
+import android.app.Fragment;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
 
 import com.anyconfusionhere.boltz.R;
+import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
 
 
 public class RootBolt extends Bolt {
@@ -30,5 +32,10 @@ public class RootBolt extends Bolt {
         }
         answertoReturn = String.valueOf(answer);
         return spannableStringBuilder;
+    }
+
+    @Override
+    public ClassicProblemFragment getLayoutFragment() {
+        return new ClassicProblemFragment();
     }
 }
