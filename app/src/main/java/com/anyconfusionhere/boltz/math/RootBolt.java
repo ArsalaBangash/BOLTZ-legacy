@@ -1,13 +1,12 @@
 package com.anyconfusionhere.boltz.math;
 
-import android.app.Fragment;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
 
 import com.anyconfusionhere.boltz.R;
-import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
+import com.anyconfusionhere.boltz.fragments.ComputationFragment;
 
 
 public class RootBolt extends Bolt {
@@ -35,7 +34,7 @@ public class RootBolt extends Bolt {
     }
 
     @Override
-    public ClassicProblemFragment getLayoutFragment() {
-        return new ClassicProblemFragment();
+    public ComputationFragment getLayoutFragment() {
+        return new ComputationFragment();
     }
 }

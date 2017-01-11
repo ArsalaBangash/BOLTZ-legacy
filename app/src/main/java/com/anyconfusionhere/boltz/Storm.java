@@ -1,17 +1,13 @@
 package com.anyconfusionhere.boltz;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.view.Window;
 import android.widget.Chronometer;
 import android.widget.TextView;
-
-import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
 
 public class Storm extends AppCompatActivity {
     TextView currentProblem, currentAnswer, questionsLeft;
@@ -119,6 +115,5 @@ public class Storm extends AppCompatActivity {
     public void onBackPressed() {
         timer.stop();
         startActivity(startIntent);
-
     }
 }

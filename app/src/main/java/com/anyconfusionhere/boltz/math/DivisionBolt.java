@@ -1,10 +1,9 @@
 package com.anyconfusionhere.boltz.math;
 
-import android.app.Fragment;
 import android.text.SpannableStringBuilder;
 
 import com.anyconfusionhere.boltz.R;
-import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
+import com.anyconfusionhere.boltz.fragments.ComputationFragment;
 
 import java.text.DecimalFormat;
 
@@ -26,7 +25,7 @@ public class DivisionBolt extends Bolt {
     }
 
     @Override
-    public ClassicProblemFragment getLayoutFragment() {
-        return new ClassicProblemFragment();
+    public ComputationFragment getLayoutFragment() {
+        return new ComputationFragment();
     }
 }

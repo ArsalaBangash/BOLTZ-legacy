@@ -10,9 +10,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.anyconfusionhere.boltz.R;
 
-public class ClassicProblemFragment extends Fragment {
+public class ComputationFragment extends Fragment {
     TextView currentProblem;
     View problemView;
+    private static ComputationFragment computationFragmentInstance = new ComputationFragment();
+
+    public static ComputationFragment getComputationFragmentInstance(){
+        return computationFragmentInstance;
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +26,7 @@ public class ClassicProblemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        problemView =  inflater.inflate(R.layout.classic_problem_layout, container, false);
+        problemView =  inflater.inflate(R.layout.simple_question_fragment, container, false);
         currentProblem = (TextView) problemView.findViewById(R.id.currentProblem);
         return problemView;
     }

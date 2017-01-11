@@ -1,13 +1,12 @@
 package com.anyconfusionhere.boltz.math;
 
-import android.app.Fragment;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
 
 import com.anyconfusionhere.boltz.R;
-import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
+import com.anyconfusionhere.boltz.fragments.ComputationFragment;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -100,7 +99,7 @@ public class FactorizationBolt extends Bolt{
     }
 
     @Override
-    public ClassicProblemFragment getLayoutFragment() {
+    public ComputationFragment getLayoutFragment() {
         return null;
     }
 

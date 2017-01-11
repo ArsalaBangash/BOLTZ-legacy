@@ -1,9 +1,8 @@
 package com.anyconfusionhere.boltz.math;
 
-import android.app.Fragment;
 import android.text.SpannableStringBuilder;
 
-import com.anyconfusionhere.boltz.fragments.ClassicProblemFragment;
+import com.anyconfusionhere.boltz.fragments.ComputationFragment;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -31,7 +30,7 @@ public abstract class Bolt {
     public abstract SpannableStringBuilder produceQuestion();
     public String getAnswer(){return answertoReturn;}
     public int getLayoutResource(){return layoutResource;}
-    public abstract ClassicProblemFragment getLayoutFragment();
+    public abstract ComputationFragment getLayoutFragment();
 
 
 
