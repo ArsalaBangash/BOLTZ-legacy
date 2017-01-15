@@ -1,11 +1,12 @@
 package com.anyconfusionhere.boltz;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+
 public class EndScreen extends AppCompatActivity {
     Intent playAgainIntent, startIntent, endScreenInit, reportIntent;
 
@@ -14,7 +15,7 @@ public class EndScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_end_screen);
-        TextView finalTimeText = (TextView)findViewById(R.id.finalTime);
+        TextView finalTimeText = (TextView) findViewById(R.id.finalTime);
 
         //Intents created for each button on the End Screen
         playAgainIntent = new Intent(EndScreen.this, Storm.class);
@@ -32,6 +33,7 @@ public class EndScreen extends AppCompatActivity {
 
     /**
      * Starts Math practice activity again when the Play Again button is pressed
+     *
      * @param view The Play Again button
      */
     public void playAgain(View view) {
@@ -40,6 +42,7 @@ public class EndScreen extends AppCompatActivity {
 
     /**
      * Goes to Main menu activity when Main Menu button is pressed
+     *
      * @param view The Main Menu button
      */
     public void mainMenu(View view) {
@@ -48,6 +51,7 @@ public class EndScreen extends AppCompatActivity {
 
     /**
      * Goes to Final Report activity when Final Report button is pressed
+     *
      * @param view The Final Report button
      */
     public void startReport(View view) {

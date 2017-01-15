@@ -2,8 +2,8 @@ package com.anyconfusionhere.boltz;
 
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Window;
@@ -20,7 +20,7 @@ public class Report extends AppCompatActivity implements ReportAdapter.ListItemC
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_report);
-        TextView reportTimeTakenText = (TextView)findViewById(R.id.reportTimeTaken);
+        TextView reportTimeTakenText = (TextView) findViewById(R.id.reportTimeTaken);
         reportInit = getIntent();
         String timeTaken = reportInit.getStringExtra(Intent.EXTRA_TEXT);
         reportTimeTakenText.setText("Your Time Taken: " + timeTaken);

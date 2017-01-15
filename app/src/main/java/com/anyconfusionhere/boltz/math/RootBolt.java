@@ -6,12 +6,15 @@ import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
 
 import com.anyconfusionhere.boltz.R;
+import com.anyconfusionhere.boltz.Storm;
+import com.anyconfusionhere.boltz.StormPresenter;
 import com.anyconfusionhere.boltz.fragments.ComputationFragment;
 
 
 public class RootBolt extends Bolt {
 
-    public RootBolt() {
+    public RootBolt(Storm storm) {
+        super(storm);
         layoutResource = R.layout.activity_storm;
     }
 
@@ -21,8 +24,8 @@ public class RootBolt extends Bolt {
         int answer = randomGenerator.nextInt(10) + 3;
         int b = randomGenerator.nextInt(exponentMap.get(answer)) + 2;
         System.out.println(b);
-        int a = (int) Math.pow((double)answer, (double)b);
-        if(b == 2) {
+        int a = (int) Math.pow((double) answer, (double) b);
+        if (b == 2) {
             spannableStringBuilder.append("\u221A" + String.valueOf(a) + " =");
         } else {
             spannableStringBuilder.append(String.valueOf(b) + "\u221A" + String.valueOf(a) + " =");
@@ -36,5 +39,18 @@ public class RootBolt extends Bolt {
     @Override
     public ComputationFragment getLayoutFragment() {
         return new ComputationFragment();
+    }
+
+    @Override
+    public SpannableStringBuilder presentQuestion(StormPresenter stormPresenter) {
+        stormPresenter.storm.getFragmentManager().beginTransaction()
+                .replace(R.id.problemContainer, stormPresenter.problemFragment)
+                .commit();
+        stormPresenter.storm.getFragmentManager().beginTransaction()
+                .replace(R.id.input_container, stormPresenter.inputFragment)
+                .commit();
+        question = this.produceQuestion();
+        stormPresenter.problemFragment.setQuestion(question);
+        return question;
     }
 }

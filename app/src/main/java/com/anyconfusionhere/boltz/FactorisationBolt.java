@@ -2,8 +2,8 @@ package com.anyconfusionhere.boltz;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
@@ -11,6 +11,7 @@ import android.text.style.SuperscriptSpan;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -27,8 +28,6 @@ public class FactorisationBolt extends AppCompatActivity {
     String answer1, answer2, parsedAnswer;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +36,9 @@ public class FactorisationBolt extends AppCompatActivity {
         //Initializes TextViews, MediaPlayers, and Chronometer
         correctMP = MediaPlayer.create(this, R.raw.correct);
         inCorrectMP = MediaPlayer.create(this, R.raw.incorrect);
-        currentProblemText = (TextView)findViewById(R.id.currentProblem);
-        firstFactorText = (TextView)findViewById(R.id.firstFactorText);
-        secondFactorText = (TextView)findViewById(R.id.secondFactorText);
+        currentProblemText = (TextView) findViewById(R.id.currentProblem);
+        firstFactorText = (TextView) findViewById(R.id.firstFactorText);
+        secondFactorText = (TextView) findViewById(R.id.secondFactorText);
         questionsLeft = (TextView) findViewById(R.id.questionsLeft);
         timer = (Chronometer) findViewById(R.id.timeTaken);
 
@@ -64,9 +63,9 @@ public class FactorisationBolt extends AppCompatActivity {
 
     public void push(View view) {
         charactersEntered++;
-        if (charactersEntered <=3) {
+        if (charactersEntered <= 3) {
             firstFactorText.setText(firstFactorText.getText() + view.getTag().toString());
-        } else if (charactersEntered <=6 && charactersEntered > 3){
+        } else if (charactersEntered <= 6 && charactersEntered > 3) {
             secondFactorText.setText(secondFactorText.getText() + view.getTag().toString());
 
         }
@@ -79,20 +78,20 @@ public class FactorisationBolt extends AppCompatActivity {
 
     public void pull(View view) {
 
-        if (charactersEntered <=3) {
-            if (firstFactorText.length() >0) {
+        if (charactersEntered <= 3) {
+            if (firstFactorText.length() > 0) {
                 String newCurrentAnswer = slice_end(firstFactorText.getText().toString(),
                         firstFactorText.getText().toString().length() - 1);
                 firstFactorText.setText(newCurrentAnswer);
             }
-        } else if (charactersEntered > 3){
-            if (secondFactorText.length() >0) {
+        } else if (charactersEntered > 3) {
+            if (secondFactorText.length() > 0) {
                 String newCurrentAnswer = slice_end(secondFactorText.getText().toString(),
                         secondFactorText.getText().toString().length() - 1);
                 secondFactorText.setText(newCurrentAnswer);
             }
         }
-        if (charactersEntered >0) {
+        if (charactersEntered > 0) {
             charactersEntered--;
         }
     }
@@ -115,7 +114,7 @@ public class FactorisationBolt extends AppCompatActivity {
             if (operator1 == 0) {
                 answer1Array[1] = number1;
             } else if (operator1 == 1) {
-                answer1Array[1] = (-1*number1);
+                answer1Array[1] = (-1 * number1);
             }
         } else if (xFirst1 == 1) {
             answer1Array[0] = number1;
@@ -131,7 +130,7 @@ public class FactorisationBolt extends AppCompatActivity {
             if (operator2 == 0) {
                 answer2Array[1] = number2;
             } else if (operator2 == 1) {
-                answer2Array[1] = (-1*number2);
+                answer2Array[1] = (-1 * number2);
             }
         } else if (xFirst2 == 1) {
             answer2Array[0] = number2;
@@ -141,7 +140,7 @@ public class FactorisationBolt extends AppCompatActivity {
                 answer2Array[1] = -1000;
             }
         }
-        ArrayList<String> quadArray = parseArrayFactors(answer1Array,answer2Array);
+        ArrayList<String> quadArray = parseArrayFactors(answer1Array, answer2Array);
 
         parsedAnswer = getParsedAnswer(quadArray);
         SpannableStringBuilder stringBuilder = new SpannableStringBuilder();
@@ -149,7 +148,7 @@ public class FactorisationBolt extends AppCompatActivity {
         Integer xCoeff = (Integer.parseInt(quadArray.get(1)) + Integer.parseInt(quadArray.get(2))) / 1000;
         Integer constant = Integer.parseInt(quadArray.get(3));
 
-        if ( squaredCoeff > 0) {
+        if (squaredCoeff > 0) {
             stringBuilder.append("x2 ");
         } else {
             stringBuilder.append("-x2 ");
@@ -157,14 +156,14 @@ public class FactorisationBolt extends AppCompatActivity {
 
         if (xCoeff > 0) {
             stringBuilder.append("+ " + xCoeff + "x ");
-        } else if (xCoeff < 0){
-            stringBuilder.append("- " + (-1*xCoeff) + "x ");
+        } else if (xCoeff < 0) {
+            stringBuilder.append("- " + (-1 * xCoeff) + "x ");
         }
 
         if (constant > 0) {
             stringBuilder.append("+ " + constant);
         } else {
-            stringBuilder.append("- " + (-1*constant));
+            stringBuilder.append("- " + (-1 * constant));
         }
 
         if (String.valueOf(stringBuilder.charAt(0)).equals("-")) {
@@ -178,7 +177,6 @@ public class FactorisationBolt extends AppCompatActivity {
     }
 
 
-
     public void check(View view) {
         currentQuestionsAttempts++;
         if (firstFactorText.getText().length() == 3 && secondFactorText.getText().length() == 3) {
@@ -190,7 +188,7 @@ public class FactorisationBolt extends AppCompatActivity {
             String currentParsedAnswer2 = getParsedAnswer(answerParsedArray2);
 
             if (currentParsedAnswer.equals(parsedAnswer) || currentParsedAnswer2.equals(parsedAnswer)) {
-                if(correctMP.isPlaying()) {
+                if (correctMP.isPlaying()) {
                     correctMP.stop();
                 }
                 correctMP.start();
@@ -226,10 +224,8 @@ public class FactorisationBolt extends AppCompatActivity {
         quadArray.add(String.valueOf(answer1Array[0] * answer2Array[1]));
         quadArray.add(String.valueOf(answer1Array[1] * answer2Array[0]));
         quadArray.add(String.valueOf(answer1Array[1] * answer2Array[1]));
-        Collections.sort(quadArray, new Comparator<String>()
-        {
-            public int compare(String s1,String s2)
-            {
+        Collections.sort(quadArray, new Comparator<String>() {
+            public int compare(String s1, String s2) {
                 return s2.length() - s1.length();
             }
         });
@@ -269,7 +265,7 @@ public class FactorisationBolt extends AppCompatActivity {
 
     public String getParsedAnswer(ArrayList<String> parsedArray) {
         String parsed = "";
-        for (int i = 0; i<parsedArray.size(); i++) {
+        for (int i = 0; i < parsedArray.size(); i++) {
             parsed += parsedArray.get(i);
             parsed += ",,";
         }

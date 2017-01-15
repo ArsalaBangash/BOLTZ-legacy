@@ -2,15 +2,15 @@ package com.anyconfusionhere.boltz;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
 public class Storm extends AppCompatActivity {
-    TextView currentProblem, currentAnswer, questionsLeft;
+    public TextView currentProblem, currentAnswer, questionsLeft;
     int questions, currentQuestionsAttempts = 0, currentQuestionTimeTaken = 0;
     MediaPlayer correctMP, inCorrectMP;
     Chronometer timer;
@@ -32,7 +32,6 @@ public class Storm extends AppCompatActivity {
 
         questionsLeft = (TextView) findViewById(R.id.questionsLeft);
         timer = (Chronometer) findViewById(R.id.timeTaken);
-
 
 
         timer.start();
@@ -64,16 +63,9 @@ public class Storm extends AppCompatActivity {
 
     }
 
-    public String slice_end(String s, int endIndex) {
-        if (endIndex < 0) endIndex = s.length() + endIndex;
-        return s.substring(0, endIndex);
-    }
-
     public void pull(View view) {
-        if (currentAnswer.length() >0) {
-            String newCurrentAnswer = slice_end(currentAnswer.getText().toString(), currentAnswer.getText().toString().length() - 1);
-            currentAnswer.setText(newCurrentAnswer);
-        }
+        stormPresenter.pull();
+
     }
 
 
@@ -96,19 +88,16 @@ public class Storm extends AppCompatActivity {
         }
 
         if (questions == 0) {
-                endScreenIntent.putExtra(Intent.EXTRA_TEXT, timer.getContentDescription());
-                startActivity(endScreenIntent);
-            }
+            endScreenIntent.putExtra(Intent.EXTRA_TEXT, timer.getContentDescription());
+            startActivity(endScreenIntent);
+        }
         currentAnswer.setText("");
         questionsLeft.setText(Integer.toString(questions));
-        }
+    }
 
 
     public void push(View view) {
-
-        if (currentAnswer.getText().toString().length() < 8) {
-            currentAnswer.setText(currentAnswer.getText() + view.getTag().toString());
-        }
+        stormPresenter.push(view.getTag().toString());
     }
 
     @Override

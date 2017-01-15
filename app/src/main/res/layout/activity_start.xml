@@ -24,8 +24,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="155dp"
-        android:onClick="startGame">
-    </Button>
+        android:onClick="startGame"></Button>
 
     <Button
         android:id="@+id/settings"
@@ -40,8 +39,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
-        android:onClick="startSettings">
-    </Button>
+        android:onClick="startSettings"></Button>
 
     <TextView
         android:text="βOLTℤ"

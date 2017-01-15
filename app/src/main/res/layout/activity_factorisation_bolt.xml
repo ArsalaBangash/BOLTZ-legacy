@@ -11,8 +11,6 @@
     tools:context="com.anyconfusionhere.boltz.FactorisationBolt">
 
 
-
-
     <GridLayout
         android:background="#ffffff"
         android:layout_alignParentBottom="true"
@@ -35,8 +33,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <Button
             android:id="@+id/eightButton"
@@ -52,8 +49,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <Button
             android:id="@+id/nineButton"
@@ -99,8 +95,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <Button
             android:id="@+id/fiveButton"
@@ -116,8 +111,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <Button
             android:id="@+id/sixButton"
@@ -133,8 +127,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <Button
             android:id="@+id/oneButton"
@@ -150,8 +143,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <Button
             android:id="@+id/twoButton"
@@ -167,8 +159,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <Button
             android:id="@+id/threeButton"
@@ -184,8 +175,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <Button
             android:id="@+id/pointButton"
@@ -202,8 +192,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <Button
             android:id="@+id/negButton"
@@ -220,8 +209,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
         <ImageButton
             android:background="@drawable/grid_button_style"
@@ -253,8 +241,7 @@
             android:textSize="30dp"
             android:layout_width="85dp"
             android:layout_height="60dp"
-            android:background="@drawable/grid_button_style"
-            />
+            android:background="@drawable/grid_button_style" />
 
 
     </GridLayout>
@@ -393,7 +380,6 @@
         android:layout_alignBottom="@+id/middleBracket"
         android:layout_toRightOf="@+id/currentProblem"
         android:layout_toEndOf="@+id/currentProblem" />
-
 
 
 </RelativeLayout>

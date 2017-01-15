@@ -3,6 +3,8 @@ package com.anyconfusionhere.boltz;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
+import com.anyconfusionhere.boltz.R;
+
 /**
  * Preference Fragment class for the Settings Activity
  */

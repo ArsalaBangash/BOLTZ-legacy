@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/factoriseLabel"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Factorise: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="visible"
+        android:textSize="30dp"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/timeTaken"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/secondFactorText"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:visibility="visible"
+        android:layout_alignBaseline="@+id/middleBracket"
+        android:layout_alignBottom="@+id/middleBracket"
+        android:layout_toRightOf="@+id/middleBracket"
+        android:layout_toEndOf="@+id/middleBracket"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp" />
+
+    <TextView
+        android:id="@+id/firstFactorText"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:visibility="visible"
+        android:layout_alignBaseline="@+id/openBracket"
+        android:layout_alignBottom="@+id/openBracket"
+        android:layout_alignRight="@+id/timeTaken"
+        android:layout_alignEnd="@+id/timeTaken"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp" />
+
+    <TextView
+        android:id="@+id/factorProblem"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="visible"
+        android:textSize="30dp"
+        android:layout_below="@+id/factoriseLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
+
+    <TextView
+        android:id="@+id/middleBracket"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:visibility="visible"
+        android:text=")   ("
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="109dp" />
+
+    <TextView
+        android:id="@+id/openBracket"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:visibility="visible"
+        android:text="("
+        android:layout_alignBaseline="@+id/middleBracket"
+        android:layout_alignBottom="@+id/middleBracket"
+        android:layout_toRightOf="@+id/currentProblem"
+        android:layout_toEndOf="@+id/currentProblem" />
+
+    <TextView
+        android:id="@+id/endBracket"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:visibility="visible"
+        android:text=")"
+        android:layout_alignBaseline="@+id/secondFactorText"
+        android:layout_alignBottom="@+id/secondFactorText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

@@ -51,7 +51,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
         return numItems;
     }
 
-    class ReportViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class ReportViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView listItemNumberView;
 
@@ -67,6 +67,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
 
         /**
          * Binds the data to the current ViewHolder
+         *
          * @param listIndex The index of the question for which data has to be displayed
          */
         void bind(int listIndex) {

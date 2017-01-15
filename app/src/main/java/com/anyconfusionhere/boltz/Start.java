@@ -1,9 +1,8 @@
 package com.anyconfusionhere.boltz;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 
@@ -19,6 +18,7 @@ public class Start extends AppCompatActivity {
 
     /**
      * Starts the Math Practice storm
+     *
      * @param view The Start Game button
      */
     public void startGame(View view) {
@@ -28,6 +28,7 @@ public class Start extends AppCompatActivity {
 
     /**
      * Starts the Settings activity
+     *
      * @param view The settings button
      */
     public void startSettings(View view) {

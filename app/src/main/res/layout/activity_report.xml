@@ -40,6 +40,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="13dp"
-        android:id="@+id/reportList"/>
+        android:id="@+id/reportList" />
 
 </RelativeLayout>

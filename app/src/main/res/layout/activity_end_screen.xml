@@ -11,9 +11,6 @@
     tools:context="com.anyconfusionhere.boltz.EndScreen">
 
 
-
-
-
     <Button
         android:id="@+id/playAgain"
         android:fontFamily="sans-serif-light"
@@ -27,8 +24,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="155dp"
-        android:onClick="playAgain">
-    </Button>
+        android:onClick="playAgain"></Button>
 
     <Button
         android:id="@+id/report"
@@ -43,8 +39,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
-        android:onClick="startReport">
-    </Button>
+        android:onClick="startReport"></Button>
 
     <Button
         android:id="@+id/mainMenu"
@@ -60,8 +55,7 @@
         android:layout_below="@+id/report"
         android:layout_alignLeft="@+id/report"
         android:layout_alignStart="@+id/report"
-        android:onClick="mainMenu">
-    </Button>
+        android:onClick="mainMenu"></Button>
 
     <TextView
         android:text="Well Done!"

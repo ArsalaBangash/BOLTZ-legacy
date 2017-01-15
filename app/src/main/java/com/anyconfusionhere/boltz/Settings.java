@@ -1,12 +1,11 @@
 package com.anyconfusionhere.boltz;
 
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Toast;
 
 import java.util.Collection;
@@ -34,6 +33,7 @@ public class Settings extends PreferenceActivity implements SharedPreferences.On
                 .commit();
 
     }
+
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
         /*
@@ -43,7 +43,7 @@ public class Settings extends PreferenceActivity implements SharedPreferences.On
         int switchOnCount = 0;
         Map<String, ?> allPreferences = sharedPreferences.getAll();
         Collection boolSet = allPreferences.values();
-        for (Object prefObj: boolSet) {
+        for (Object prefObj : boolSet) {
             Boolean prefBool = (Boolean) prefObj;
             if (prefBool) {
                 switchOnCount++;
@@ -53,7 +53,7 @@ public class Settings extends PreferenceActivity implements SharedPreferences.On
         //If there are no switches that are switched on, then the last switch turned off is kept on
         if (switchOnCount == 0) {
             Toast.makeText(this, "One Question Type Must be selected", Toast.LENGTH_SHORT).show();
-            sharedPreferences.edit().putBoolean(s,!sharedPreferences.getBoolean(s,true)).apply();
+            sharedPreferences.edit().putBoolean(s, !sharedPreferences.getBoolean(s, true)).apply();
             SwitchPreference switchPreference = (SwitchPreference) settingsFragment.findPreference(s);
             switchPreference.setChecked(true);
         }

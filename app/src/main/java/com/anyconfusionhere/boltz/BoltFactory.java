@@ -5,41 +5,41 @@ import com.anyconfusionhere.boltz.math.*;
 
 public class BoltFactory {
 
-    public static Bolt createBolt(String boltType) {
+    public static Bolt createBolt(String boltType, Storm storm) {
         if (boltType.equals("Addition")) {
-            return new AdditionBolt();
+            return new AdditionBolt(storm);
         }
         if (boltType.equals("Subtraction")) {
-            return new SubtractionBolt();
+            return new SubtractionBolt(storm);
         }
         if (boltType.equals("Multiplication")) {
-            return new MultiplicationBolt();
+            return new MultiplicationBolt(storm);
         }
         if (boltType.equals("Division")) {
-            return new DivisionBolt();
+            return new DivisionBolt(storm);
         }
         if (boltType.equals("Exponents")) {
-            return new ExponentBolt();
+            return new ExponentBolt(storm);
         }
         if (boltType.equals("Root")) {
-            return new RootBolt();
+            return new RootBolt(storm);
         }
         if (boltType.equals("Log")) {
-            return new LogBolt();
+            return new LogBolt(storm);
         }
         if (boltType.equals("Modulus")) {
-            return new ModulusBolt();
+            return new ModulusBolt(storm);
         }
         if (boltType.equals("DecimalAddition")) {
-            return new DecimalAdditionBolt();
+            return new DecimalAdditionBolt(storm);
         }
         if (boltType.equals("DecimalSubtraction")) {
-            return new DecimalSubtractionBolt();
+            return new DecimalSubtractionBolt(storm);
         }
         if (boltType.equals("Factorization")) {
-            return new FactorizationBolt();
+            return new FactorizationBolt(storm);
         }
-        return new AdditionBolt();
+        return new AdditionBolt(storm);
 
     }
 }

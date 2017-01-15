@@ -4,21 +4,30 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
+import android.widget.TextView;
 
 import com.anyconfusionhere.boltz.R;
+import com.anyconfusionhere.boltz.Storm;
+import com.anyconfusionhere.boltz.StormPresenter;
 import com.anyconfusionhere.boltz.fragments.ComputationFragment;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class FactorizationBolt extends Bolt{
+public class FactorizationBolt extends Bolt {
+    int charactersEntered = 0;
+    TextView firstFactorText, secondFactorText;
 
-    public FactorizationBolt() {
+    public FactorizationBolt(Storm storm) {
+        super(storm);
         layoutResource = R.layout.activity_factorisation_bolt;
+        firstFactorText = (TextView) storm.findViewById(R.id.firstFactorText);
+        secondFactorText = (TextView) storm.findViewById(R.id.secondFactorText);
     }
 
     String answer1, answer2;
+
     @Override
     public SpannableStringBuilder produceQuestion() {
         int number1 = randomGenerator.nextInt(9) + 1;
@@ -36,7 +45,7 @@ public class FactorizationBolt extends Bolt{
             if (operator1 == 0) {
                 answer1Array[1] = number1;
             } else if (operator1 == 1) {
-                answer1Array[1] = (-1*number1);
+                answer1Array[1] = (-1 * number1);
             }
         } else if (xFirst1 == 1) {
             answer1Array[0] = number1;
@@ -52,7 +61,7 @@ public class FactorizationBolt extends Bolt{
             if (operator2 == 0) {
                 answer2Array[1] = number2;
             } else if (operator2 == 1) {
-                answer2Array[1] = (-1*number2);
+                answer2Array[1] = (-1 * number2);
             }
         } else if (xFirst2 == 1) {
             answer2Array[0] = number2;
@@ -62,7 +71,7 @@ public class FactorizationBolt extends Bolt{
                 answer2Array[1] = -1000;
             }
         }
-        ArrayList<String> quadArray = parseArrayFactors(answer1Array,answer2Array);
+        ArrayList<String> quadArray = parseArrayFactors(answer1Array, answer2Array);
 
         String parsedAnswer = getParsedAnswer(quadArray);
         SpannableStringBuilder stringBuilder = new SpannableStringBuilder();
@@ -70,7 +79,7 @@ public class FactorizationBolt extends Bolt{
         Integer xCoeff = (Integer.parseInt(quadArray.get(1)) + Integer.parseInt(quadArray.get(2))) / 1000;
         Integer constant = Integer.parseInt(quadArray.get(3));
 
-        if ( squaredCoeff > 0) {
+        if (squaredCoeff > 0) {
             stringBuilder.append("x2 ");
         } else {
             stringBuilder.append("-x2 ");
@@ -78,14 +87,14 @@ public class FactorizationBolt extends Bolt{
 
         if (xCoeff > 0) {
             stringBuilder.append("+ " + xCoeff + "x ");
-        } else if (xCoeff < 0){
-            stringBuilder.append("- " + (-1*xCoeff) + "x ");
+        } else if (xCoeff < 0) {
+            stringBuilder.append("- " + (-1 * xCoeff) + "x ");
         }
 
         if (constant > 0) {
             stringBuilder.append("+ " + constant);
         } else {
-            stringBuilder.append("- " + (-1*constant));
+            stringBuilder.append("- " + (-1 * constant));
         }
 
         if (String.valueOf(stringBuilder.charAt(0)).equals("-")) {
@@ -105,7 +114,7 @@ public class FactorizationBolt extends Bolt{
 
     public String getParsedAnswer(ArrayList<String> parsedArray) {
         String parsed = "";
-        for (int i = 0; i<parsedArray.size(); i++) {
+        for (int i = 0; i < parsedArray.size(); i++) {
             parsed += parsedArray.get(i);
             parsed += ",,";
         }
@@ -118,10 +127,8 @@ public class FactorizationBolt extends Bolt{
         quadArray.add(String.valueOf(answer1Array[0] * answer2Array[1]));
         quadArray.add(String.valueOf(answer1Array[1] * answer2Array[0]));
         quadArray.add(String.valueOf(answer1Array[1] * answer2Array[1]));
-        Collections.sort(quadArray, new Comparator<String>()
-        {
-            public int compare(String s1,String s2)
-            {
+        Collections.sort(quadArray, new Comparator<String>() {
+            public int compare(String s1, String s2) {
                 return s2.length() - s1.length();
             }
         });
@@ -156,5 +163,48 @@ public class FactorizationBolt extends Bolt{
         }
         return stringFactorArray;
 
+    }
+
+    @Override
+    public void pull() {
+        if (charactersEntered <= 3) {
+            if (firstFactorText.length() > 0) {
+                String newCurrentAnswer = slice_end(firstFactorText.getText().toString(),
+                        firstFactorText.getText().toString().length() - 1);
+                firstFactorText.setText(newCurrentAnswer);
+            }
+        } else if (charactersEntered > 3) {
+            if (secondFactorText.length() > 0) {
+                String newCurrentAnswer = slice_end(secondFactorText.getText().toString(),
+                        secondFactorText.getText().toString().length() - 1);
+                secondFactorText.setText(newCurrentAnswer);
+            }
+        }
+        if (charactersEntered > 0) {
+            charactersEntered--;
+        }
+    }
+
+    @Override
+    public SpannableStringBuilder presentQuestion(StormPresenter stormPresenter) {
+        stormPresenter.storm.getFragmentManager().beginTransaction()
+                .replace(R.id.problemContainer, stormPresenter.factorFragment)
+                .commit();
+        stormPresenter.storm.getFragmentManager().beginTransaction()
+                .replace(R.id.input_container, stormPresenter.algebraInputFragment)
+                .commit();
+        question = this.produceQuestion();
+        stormPresenter.factorFragment.setQuestion(question);
+        return question;
+    }
+
+    @Override
+    public void push(String toPush) {
+        charactersEntered++;
+        if (charactersEntered <= 3) {
+            firstFactorText.setText(firstFactorText.getText() + toPush);
+        } else if (charactersEntered <= 6 && charactersEntered > 3) {
+            secondFactorText.setText(secondFactorText.getText() + toPush);
+        }
     }
 }

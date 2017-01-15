@@ -1,26 +1,34 @@
 package com.anyconfusionhere.boltz;
 
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Fragment;
 import android.text.SpannableStringBuilder;
+
+import com.anyconfusionhere.boltz.fragments.AlgebraInputFragment;
+import com.anyconfusionhere.boltz.fragments.CalculatorInputFragment;
+import com.anyconfusionhere.boltz.fragments.ComputationFragment;
+import com.anyconfusionhere.boltz.fragments.FactorizationFragment;
+import com.anyconfusionhere.boltz.fragments.UIFragment;
+import com.anyconfusionhere.boltz.math.Bolt;
 
 import java.util.Observable;
 import java.util.Observer;
 
-import com.anyconfusionhere.boltz.fragments.CalculatorInputFragment;
-import com.anyconfusionhere.boltz.fragments.ComputationFragment;
-
-public class StormPresenter implements Observer{
+public class StormPresenter implements Observer {
     public SpannableStringBuilder question;
     private String answer;
-    private AppCompatActivity storm;
-    public ComputationFragment problemFragment;
-    public CalculatorInputFragment inputFragment;
+    private Bolt bolt;
+    public Storm storm;
+    public UIFragment problemFragment, factorFragment;
+    public Fragment inputFragment, algebraInputFragment;
 
-    public StormPresenter(AppCompatActivity stormActivity){
+
+    public StormPresenter(Storm stormActivity) {
         storm = stormActivity;
         problemFragment = new ComputationFragment();
         inputFragment = new CalculatorInputFragment();
+        factorFragment = new FactorizationFragment();
+        algebraInputFragment = new AlgebraInputFragment();
 
         storm.getFragmentManager().beginTransaction()
                 .add(R.id.problemContainer, problemFragment)
@@ -28,24 +36,39 @@ public class StormPresenter implements Observer{
         storm.getFragmentManager().beginTransaction()
                 .add(R.id.input_container, inputFragment)
                 .commit();
+        storm.getFragmentManager().beginTransaction()
+                .add(R.id.problemContainer, factorFragment)
+                .commit();
+        storm.getFragmentManager().beginTransaction()
+                .add(R.id.input_container, algebraInputFragment)
+                .commit();
 
 
     }
 
     public void presentQuestion() {
-        problemFragment.setQuestion(question);
+        question = bolt.presentQuestion(this);
+        answer = bolt.getAnswer();
+
     }
 
     public boolean checkAnswer(String currentAnswer) {
         return answer.equals(currentAnswer);
     }
 
+    public void pull() {
+        bolt.pull();
+    }
+
+    public void push(String toPush) {
+        bolt.push(toPush);
+    }
+
+
     @Override
     public void update(Observable o, Object arg) {
         StormHandler stormHandler = (StormHandler) o;
-        question = stormHandler.getQuestion();
-        answer = stormHandler.getAnswer();
-//        f = stormHandler.getLayoutFragment();
+        bolt = stormHandler.getBolt();
         presentQuestion();
     }
 }

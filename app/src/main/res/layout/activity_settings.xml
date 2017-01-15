@@ -17,6 +17,7 @@
         android:layout_height="match_parent">
 
     </ListView>
+
     <TextView
         android:text="Settings"
         android:fontFamily="sans-serif-light"
@@ -34,14 +35,13 @@
         android:layout_width="fill_parent"
         android:layout_height="2dip"
         android:id="@+id/settingsHorizontalBar"
-        android:background="#449DEF"/>
+        android:background="#449DEF" />
 
     <FrameLayout
         android:layout_below="@id/settingsHorizontalBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/fragmentContainer"
-        />
+        android:id="@+id/fragmentContainer" />
 
 
 </RelativeLayout>
