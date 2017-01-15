@@ -17,7 +17,7 @@ public abstract class Bolt {
     SpannableStringBuilder question;
 
     public Bolt(Storm newStormActivity) {
-        currentAnswer = newStormActivity.currentAnswer;
+        currentAnswer = newStormActivity.stormPresenter.problemFragment.getAnswerView();
         exponentMap = new HashMap<>();
         exponentMap.put(2, 5);
         exponentMap.put(3, 3);
@@ -69,6 +69,12 @@ public abstract class Bolt {
     }
 
     public abstract SpannableStringBuilder presentQuestion(StormPresenter stormPresenter);
+
+    public Boolean check(){return true;}
+
+    public void erase() {
+        currentAnswer.setText("");
+    }
 
 
 }

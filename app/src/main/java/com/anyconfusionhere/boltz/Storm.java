@@ -10,47 +10,23 @@ import android.widget.Chronometer;
 import android.widget.TextView;
 
 public class Storm extends AppCompatActivity {
-    public TextView currentProblem, currentAnswer, questionsLeft;
-    int questions, currentQuestionsAttempts = 0, currentQuestionTimeTaken = 0;
-    MediaPlayer correctMP, inCorrectMP;
-    Chronometer timer;
-    StormPresenter stormPresenter;
+    public StormPresenter stormPresenter;
     StormHandler stormHandler;
-    Intent startIntent, endScreenIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_storm);
-        questions = 8;
         stormPresenter = new StormPresenter(this);
         //Initializes TextViews, MediaPlayers, and Chronometer
-        correctMP = MediaPlayer.create(this, R.raw.correct);
-        inCorrectMP = MediaPlayer.create(this, R.raw.incorrect);
-        currentProblem = (TextView) findViewById(R.id.currentProblem);
-
-        questionsLeft = (TextView) findViewById(R.id.questionsLeft);
-        timer = (Chronometer) findViewById(R.id.timeTaken);
 
 
-        timer.start();
-        timer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
-
-            public void onChronometerTick(Chronometer chronometer) {
-                chronometer.refreshDrawableState();
-                currentQuestionTimeTaken++;
-            }
-        });
-
-        startIntent = new Intent(Storm.this, Start.class);
-        endScreenIntent = new Intent(Storm.this, EndScreen.class);
 
     }
 
     public void onStart() {
         super.onStart();
-        currentAnswer = stormPresenter.problemFragment.getAnswerView();
         try {
             stormHandler = new StormHandler(this);
         } catch (NoSuchFieldException e) {
@@ -70,29 +46,12 @@ public class Storm extends AppCompatActivity {
 
 
     public void check(View view) {
-        currentQuestionsAttempts++;
-        if (stormPresenter.checkAnswer(String.valueOf(currentAnswer.getText()))) {
-            correctMP.start();
-            questions--;
-            ReportData.getReportData().inputReportData(
-                    String.valueOf(String.valueOf(stormPresenter.question)).substring(0, stormPresenter.question.length() - 1),
-                    String.valueOf(currentAnswer.getText()),
-                    String.valueOf(currentQuestionTimeTaken) + "s",
-                    String.valueOf(currentQuestionsAttempts));
-            currentQuestionsAttempts = 0;
-            currentQuestionTimeTaken = 0;
+        if (stormPresenter.check()) {
             stormHandler.handleBolt();
-
-        } else {
-            inCorrectMP.start();
         }
 
-        if (questions == 0) {
-            endScreenIntent.putExtra(Intent.EXTRA_TEXT, timer.getContentDescription());
-            startActivity(endScreenIntent);
-        }
-        currentAnswer.setText("");
-        questionsLeft.setText(Integer.toString(questions));
+
+
     }
 
 
@@ -102,7 +61,7 @@ public class Storm extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        timer.stop();
-        startActivity(startIntent);
+        stormPresenter.onBack();
+
     }
 }

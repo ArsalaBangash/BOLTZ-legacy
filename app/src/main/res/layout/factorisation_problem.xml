@@ -48,31 +48,6 @@
         android:layout_marginEnd="12dp" />
 
     <TextView
-        android:id="@+id/factorProblem"
-        android:fontFamily="sans-serif-light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:visibility="visible"
-        android:textSize="30dp"
-        android:layout_below="@+id/factoriseLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="14dp" />
-
-    <TextView
-        android:id="@+id/middleBracket"
-        android:fontFamily="sans-serif-light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30dp"
-        android:visibility="visible"
-        android:text=")   ("
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="109dp" />
-
-    <TextView
         android:id="@+id/openBracket"
         android:fontFamily="sans-serif-light"
         android:layout_width="wrap_content"
@@ -99,4 +74,30 @@
         android:layout_alignBottom="@+id/secondFactorText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/middleBracket"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dp"
+        android:visibility="visible"
+        android:text=")   ("
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/factorProblem"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/factorProblem"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="visible"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/factoriseLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
