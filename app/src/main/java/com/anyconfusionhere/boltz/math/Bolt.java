@@ -1,6 +1,7 @@
 package com.anyconfusionhere.boltz.math;
 
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.anyconfusionhere.boltz.Storm;
@@ -34,7 +35,7 @@ public abstract class Bolt {
     }
 
     static Random randomGenerator = new Random();
-    static String answertoReturn;
+    String answertoReturn;
 
     public abstract SpannableStringBuilder produceQuestion();
 
@@ -70,7 +71,15 @@ public abstract class Bolt {
 
     public abstract SpannableStringBuilder presentQuestion(StormPresenter stormPresenter);
 
-    public Boolean check(){return true;}
+    public Boolean check(){
+        Log.d("Hello", answertoReturn);
+        Log.d("Hello", String.valueOf(currentAnswer.getText()));
+
+        if( answertoReturn.equals(String.valueOf(currentAnswer.getText()))) {
+            return true;
+        }
+        return false;
+    }
 
     public void erase() {
         currentAnswer.setText("");

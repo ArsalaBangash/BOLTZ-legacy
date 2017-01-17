@@ -1,5 +1,6 @@
 package com.anyconfusionhere.boltz.math;
 
+import android.content.Intent;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
@@ -7,6 +8,7 @@ import android.text.style.SuperscriptSpan;
 import android.widget.TextView;
 
 import com.anyconfusionhere.boltz.R;
+import com.anyconfusionhere.boltz.ReportData;
 import com.anyconfusionhere.boltz.Storm;
 import com.anyconfusionhere.boltz.StormPresenter;
 import com.anyconfusionhere.boltz.fragments.ComputationFragment;
@@ -18,6 +20,7 @@ import java.util.Comparator;
 public class FactorizationBolt extends Bolt {
     int charactersEntered = 0;
     TextView firstFactorText, secondFactorText;
+    String parsedAnswer;
 
     public FactorizationBolt(Storm storm) {
         super(storm);
@@ -73,7 +76,7 @@ public class FactorizationBolt extends Bolt {
         }
         ArrayList<String> quadArray = parseArrayFactors(answer1Array, answer2Array);
 
-        String parsedAnswer = getParsedAnswer(quadArray);
+        parsedAnswer = getParsedAnswer(quadArray);
         SpannableStringBuilder stringBuilder = new SpannableStringBuilder();
         Integer squaredCoeff = Integer.parseInt(quadArray.get(0));
         Integer xCoeff = (Integer.parseInt(quadArray.get(1)) + Integer.parseInt(quadArray.get(2))) / 1000;
@@ -206,5 +209,29 @@ public class FactorizationBolt extends Bolt {
         } else if (charactersEntered <= 6 && charactersEntered > 3) {
             secondFactorText.setText(secondFactorText.getText() + toPush);
         }
+    }
+
+    @Override
+    public Boolean check() {
+        firstFactorText.setText("");
+        secondFactorText.setText("");
+        if (firstFactorText.getText().length() == 3 && secondFactorText.getText().length() == 3) {
+            int[] factor1Array = parseStringFactors(String.valueOf(firstFactorText.getText()));
+            int[] factor2Array = parseStringFactors(String.valueOf(secondFactorText.getText()));
+            ArrayList<String> answerParsedArray = parseArrayFactors(factor1Array, factor2Array);
+            ArrayList<String> answerParsedArray2 = parseArrayFactors(factor2Array, factor1Array);
+            String currentParsedAnswer = getParsedAnswer(answerParsedArray);
+            String currentParsedAnswer2 = getParsedAnswer(answerParsedArray2);
+
+            if (currentParsedAnswer.equals(parsedAnswer) || currentParsedAnswer2.equals(parsedAnswer)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+
     }
 }

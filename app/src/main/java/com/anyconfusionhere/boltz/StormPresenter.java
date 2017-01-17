@@ -81,7 +81,8 @@ public class StormPresenter implements Observer {
 
     public Boolean check() {
         currentQuestionsAttempts++;
-        if (bolt.check()) {
+        Boolean correctCheck = bolt.check();
+        if (correctCheck) {
             playCorrect();
             questions--;
             ReportData.getReportData().inputReportData(
@@ -101,7 +102,7 @@ public class StormPresenter implements Observer {
         }
         bolt.erase();
         questionsLeft.setText(Integer.toString(questions));
-        return bolt.check();
+        return false;
     }
 
     public void presentQuestion() {
