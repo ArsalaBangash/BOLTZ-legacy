@@ -1,13 +1,10 @@
 package com.anyconfusionhere.boltz;
 
-import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.Chronometer;
-import android.widget.TextView;
 
 public class Storm extends AppCompatActivity {
     public StormPresenter stormPresenter;
@@ -20,9 +17,6 @@ public class Storm extends AppCompatActivity {
         setContentView(R.layout.activity_storm);
         stormPresenter = new StormPresenter(this);
         //Initializes TextViews, MediaPlayers, and Chronometer
-
-
-
     }
 
     public void onStart() {
@@ -46,12 +40,10 @@ public class Storm extends AppCompatActivity {
 
 
     public void check(View view) {
-        stormHandler.handleBolt();
         if (stormPresenter.check()) {
+            Log.d("NEW BOLT?", "YES");
+            stormHandler.handleBolt();
         }
-
-
-
     }
 
 

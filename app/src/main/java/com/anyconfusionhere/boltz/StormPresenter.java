@@ -1,18 +1,14 @@
 package com.anyconfusionhere.boltz;
 
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.text.SpannableStringBuilder;
+import android.util.Log;
+import android.view.View;
 import android.widget.Chronometer;
+import android.widget.FrameLayout;
 import android.widget.TextView;
-
-import com.anyconfusionhere.boltz.fragments.AlgebraInputFragment;
-import com.anyconfusionhere.boltz.fragments.CalculatorInputFragment;
-import com.anyconfusionhere.boltz.fragments.ComputationFragment;
-import com.anyconfusionhere.boltz.fragments.FactorizationFragment;
-import com.anyconfusionhere.boltz.fragments.UIFragment;
 import com.anyconfusionhere.boltz.math.Bolt;
 
 import java.util.Observable;
@@ -20,17 +16,17 @@ import java.util.Observer;
 
 public class StormPresenter implements Observer {
     public SpannableStringBuilder question;
-    public TextView questionsLeft;
+    private TextView questionsLeft;
 
     private String answer;
     private Bolt bolt;
     public Storm storm;
-    public UIFragment problemFragment, factorFragment;
-    public Fragment inputFragment, algebraInputFragment;
-    MediaPlayer correctMP, inCorrectMP;
-    int questions, currentQuestionsAttempts = 0, currentQuestionTimeTaken = 0;
-    Chronometer timer;
-    Intent startIntent, endScreenIntent;
+    private MediaPlayer correctMP, inCorrectMP;
+    private int questions, currentQuestionsAttempts = 0, currentQuestionTimeTaken = 0;
+    private Chronometer timer;
+    private Intent startIntent, endScreenIntent;
+    public FrameLayout inputFrame, questionFrame;
+    public View factorProblem, simpleProblem, calcInput, algInput;
 
 
 
@@ -45,7 +41,16 @@ public class StormPresenter implements Observer {
         endScreenIntent = new Intent(storm, EndScreen.class);
         timer = (Chronometer) storm.findViewById(R.id.timeTaken);
         questionsLeft = (TextView) storm.findViewById(R.id.questionsLeft);
-
+        questionFrame = (FrameLayout) storm.findViewById(R.id.problemContainer);
+        inputFrame = (FrameLayout) storm.findViewById(R.id.input_container);
+        factorProblem = storm.getLayoutInflater().inflate(R.layout.factorisation_problem, null);
+        simpleProblem = storm.getLayoutInflater().inflate(R.layout.simple_problem, null);
+        calcInput = storm.getLayoutInflater().inflate(R.layout.calculator_input, null);
+        algInput = storm.getLayoutInflater().inflate(R.layout.algebra_input, null);
+        questionFrame.addView(factorProblem);
+        questionFrame.addView(simpleProblem);
+        inputFrame.addView(algInput);
+        inputFrame.addView(calcInput);
 
 
         timer.start();
@@ -58,23 +63,6 @@ public class StormPresenter implements Observer {
         });
         correctMP = MediaPlayer.create(storm, R.raw.correct);
         inCorrectMP = MediaPlayer.create(storm, R.raw.incorrect);
-        problemFragment = new ComputationFragment();
-        inputFragment = new CalculatorInputFragment();
-        factorFragment = new FactorizationFragment();
-        algebraInputFragment = new AlgebraInputFragment();
-
-        storm.getFragmentManager().beginTransaction()
-                .add(R.id.problemContainer, problemFragment)
-                .commit();
-        storm.getFragmentManager().beginTransaction()
-                .add(R.id.input_container, inputFragment)
-                .commit();
-        storm.getFragmentManager().beginTransaction()
-                .add(R.id.problemContainer, factorFragment)
-                .commit();
-        storm.getFragmentManager().beginTransaction()
-                .add(R.id.input_container, algebraInputFragment)
-                .commit();
 
 
     }
@@ -102,17 +90,14 @@ public class StormPresenter implements Observer {
         }
         bolt.erase();
         questionsLeft.setText(Integer.toString(questions));
-        return false;
+        return correctCheck;
     }
 
     public void presentQuestion() {
+        Log.d("Present bolt of type: ", String.valueOf(bolt.getClass()));
         question = bolt.presentQuestion(this);
         answer = bolt.getAnswer();
 
-    }
-
-    public boolean checkAnswer(String currentAnswer) {
-        return answer.equals(currentAnswer);
     }
 
     @Override
@@ -123,24 +108,23 @@ public class StormPresenter implements Observer {
     }
 
 
-    public void pull() {
+    void pull() {
         bolt.pull();
     }
 
-    public void push(String toPush) {
+    void push(String toPush) {
         bolt.push(toPush);
     }
 
-
-    public void playCorrect() {
+    private void playCorrect() {
         correctMP.start();
     }
 
-    public void playIncorrect() {
+    private void playIncorrect() {
         inCorrectMP.start();
     }
 
-    public void onBack() {
+    void onBack() {
         timer.stop();
         storm.startActivity(startIntent);
     }

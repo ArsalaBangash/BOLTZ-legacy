@@ -1,6 +1,5 @@
 package com.anyconfusionhere.boltz.math;
 
-import android.content.Intent;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
@@ -8,7 +7,6 @@ import android.text.style.SuperscriptSpan;
 import android.widget.TextView;
 
 import com.anyconfusionhere.boltz.R;
-import com.anyconfusionhere.boltz.ReportData;
 import com.anyconfusionhere.boltz.Storm;
 import com.anyconfusionhere.boltz.StormPresenter;
 import com.anyconfusionhere.boltz.fragments.ComputationFragment;
@@ -110,10 +108,10 @@ public class FactorizationBolt extends Bolt {
         return stringBuilder;
     }
 
-    @Override
-    public ComputationFragment getLayoutFragment() {
-        return null;
-    }
+//    @Override
+//    public ComputationFragment getLayoutFragment() {
+//        return null;
+//    }
 
     public String getParsedAnswer(ArrayList<String> parsedArray) {
         String parsed = "";
@@ -190,14 +188,11 @@ public class FactorizationBolt extends Bolt {
 
     @Override
     public SpannableStringBuilder presentQuestion(StormPresenter stormPresenter) {
-        stormPresenter.storm.getFragmentManager().beginTransaction()
-                .replace(R.id.problemContainer, stormPresenter.factorFragment)
-                .commit();
-        stormPresenter.storm.getFragmentManager().beginTransaction()
-                .replace(R.id.input_container, stormPresenter.algebraInputFragment)
-                .commit();
         question = this.produceQuestion();
-        stormPresenter.factorFragment.setQuestion(question);
+        stormPresenter.questionFrame.bringChildToFront(stormPresenter.factorProblem);
+        stormPresenter.inputFrame.bringChildToFront(stormPresenter.algInput);
+        ((TextView) stormPresenter.questionFrame.findViewById(R.id.factoriseProblem)).setText(question);
+
         return question;
     }
 
@@ -213,8 +208,8 @@ public class FactorizationBolt extends Bolt {
 
     @Override
     public Boolean check() {
-        firstFactorText.setText("");
-        secondFactorText.setText("");
+
+        charactersEntered = 0;
         if (firstFactorText.getText().length() == 3 && secondFactorText.getText().length() == 3) {
             int[] factor1Array = parseStringFactors(String.valueOf(firstFactorText.getText()));
             int[] factor2Array = parseStringFactors(String.valueOf(secondFactorText.getText()));
@@ -222,6 +217,9 @@ public class FactorizationBolt extends Bolt {
             ArrayList<String> answerParsedArray2 = parseArrayFactors(factor2Array, factor1Array);
             String currentParsedAnswer = getParsedAnswer(answerParsedArray);
             String currentParsedAnswer2 = getParsedAnswer(answerParsedArray2);
+
+            firstFactorText.setText("");
+            secondFactorText.setText("");
 
             if (currentParsedAnswer.equals(parsedAnswer) || currentParsedAnswer2.equals(parsedAnswer)) {
                 return true;

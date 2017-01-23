@@ -1,7 +1,18 @@
 package com.anyconfusionhere.boltz;
 
 
-import com.anyconfusionhere.boltz.math.*;
+import com.anyconfusionhere.boltz.math.AdditionBolt;
+import com.anyconfusionhere.boltz.math.Bolt;
+import com.anyconfusionhere.boltz.math.DecimalAdditionBolt;
+import com.anyconfusionhere.boltz.math.DecimalSubtractionBolt;
+import com.anyconfusionhere.boltz.math.DivisionBolt;
+import com.anyconfusionhere.boltz.math.ExponentBolt;
+import com.anyconfusionhere.boltz.math.FactorizationBolt;
+import com.anyconfusionhere.boltz.math.LogBolt;
+import com.anyconfusionhere.boltz.math.ModulusBolt;
+import com.anyconfusionhere.boltz.math.MultiplicationBolt;
+import com.anyconfusionhere.boltz.math.RootBolt;
+import com.anyconfusionhere.boltz.math.SubtractionBolt;
 
 public class BoltFactory {
 

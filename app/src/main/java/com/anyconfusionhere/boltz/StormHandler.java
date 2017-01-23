@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
-import com.anyconfusionhere.boltz.math.*;
+import com.anyconfusionhere.boltz.math.Bolt;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,7 +34,6 @@ public class StormHandler extends Observable {
     public Bolt getBolt() {
         return bolt;
     }
-
 
     public void handleBolt() {
         Collections.shuffle(boltsList);

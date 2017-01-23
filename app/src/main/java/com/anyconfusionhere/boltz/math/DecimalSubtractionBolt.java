@@ -1,6 +1,7 @@
 package com.anyconfusionhere.boltz.math;
 
 import android.text.SpannableStringBuilder;
+import android.widget.TextView;
 
 import com.anyconfusionhere.boltz.R;
 import com.anyconfusionhere.boltz.Storm;
@@ -31,22 +32,12 @@ public class DecimalSubtractionBolt extends Bolt {
         spannableStringBuilder.append(Double.toString(c) + "-" + Double.toString(d) + " =");
         return spannableStringBuilder;
     }
-
-    @Override
-    public ComputationFragment getLayoutFragment() {
-        return new ComputationFragment();
-    }
-
     @Override
     public SpannableStringBuilder presentQuestion(StormPresenter stormPresenter) {
-        stormPresenter.storm.getFragmentManager().beginTransaction()
-                .replace(R.id.problemContainer, stormPresenter.problemFragment)
-                .commit();
-        stormPresenter.storm.getFragmentManager().beginTransaction()
-                .replace(R.id.input_container, stormPresenter.inputFragment)
-                .commit();
         question = this.produceQuestion();
-        stormPresenter.problemFragment.setQuestion(question);
+        stormPresenter.questionFrame.bringChildToFront(stormPresenter.simpleProblem);
+        stormPresenter.inputFrame.bringChildToFront(stormPresenter.calcInput);
+        ((TextView) stormPresenter.questionFrame.findViewById(R.id.currentProblem)).setText(question);
         return question;
     }
 }

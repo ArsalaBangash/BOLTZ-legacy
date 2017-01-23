@@ -1,9 +1,9 @@
 package com.anyconfusionhere.boltz.math;
 
 import android.text.SpannableStringBuilder;
-import android.util.Log;
 import android.widget.TextView;
 
+import com.anyconfusionhere.boltz.R;
 import com.anyconfusionhere.boltz.Storm;
 import com.anyconfusionhere.boltz.StormPresenter;
 import com.anyconfusionhere.boltz.fragments.ComputationFragment;
@@ -18,7 +18,7 @@ public abstract class Bolt {
     SpannableStringBuilder question;
 
     public Bolt(Storm newStormActivity) {
-        currentAnswer = newStormActivity.stormPresenter.problemFragment.getAnswerView();
+        currentAnswer = (TextView) newStormActivity.stormPresenter.questionFrame.findViewById(R.id.currentAnswer);
         exponentMap = new HashMap<>();
         exponentMap.put(2, 5);
         exponentMap.put(3, 3);
@@ -47,7 +47,7 @@ public abstract class Bolt {
         return layoutResource;
     }
 
-    public abstract ComputationFragment getLayoutFragment();
+//    public abstract ComputationFragment getLayoutFragment();
 
     public String slice_end(String s, int endIndex) {
         if (endIndex < 0) endIndex = s.length() + endIndex;
@@ -71,14 +71,8 @@ public abstract class Bolt {
 
     public abstract SpannableStringBuilder presentQuestion(StormPresenter stormPresenter);
 
-    public Boolean check(){
-        Log.d("Hello", answertoReturn);
-        Log.d("Hello", String.valueOf(currentAnswer.getText()));
-
-        if( answertoReturn.equals(String.valueOf(currentAnswer.getText()))) {
-            return true;
-        }
-        return false;
+    public Boolean check() {
+        return answertoReturn.equals(String.valueOf(currentAnswer.getText()));
     }
 
     public void erase() {
