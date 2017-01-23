@@ -16,7 +16,6 @@ public class Storm extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_storm);
         stormPresenter = new StormPresenter(this);
-        //Initializes TextViews, MediaPlayers, and Chronometer
     }
 
     public void onStart() {

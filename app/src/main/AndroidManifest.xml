@@ -20,8 +20,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".Report"
             android:screenOrientation="portrait"/>
-        <activity android:name=".FactorisationBolt"
-            android:screenOrientation="portrait"/>
         <activity android:name=".EndScreen"
             android:screenOrientation="portrait"/>
         <activity

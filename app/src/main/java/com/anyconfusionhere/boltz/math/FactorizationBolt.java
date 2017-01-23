@@ -9,25 +9,23 @@ import android.widget.TextView;
 import com.anyconfusionhere.boltz.R;
 import com.anyconfusionhere.boltz.Storm;
 import com.anyconfusionhere.boltz.StormPresenter;
-import com.anyconfusionhere.boltz.fragments.ComputationFragment;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class FactorizationBolt extends Bolt {
-    int charactersEntered = 0;
-    TextView firstFactorText, secondFactorText;
-    String parsedAnswer;
+    private int charactersEntered = 0;
+    private TextView firstFactorText, secondFactorText;
+    private String parsedAnswer;
+
 
     public FactorizationBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_factorisation_bolt;
         firstFactorText = (TextView) storm.findViewById(R.id.firstFactorText);
         secondFactorText = (TextView) storm.findViewById(R.id.secondFactorText);
     }
 
-    String answer1, answer2;
 
     @Override
     public SpannableStringBuilder produceQuestion() {
@@ -37,8 +35,6 @@ public class FactorizationBolt extends Bolt {
         int operator2 = randomGenerator.nextInt(2);
         int xFirst1 = randomGenerator.nextInt(2);
         int xFirst2 = randomGenerator.nextInt(2);
-        answer1 = "";
-        answer2 = "";
         int[] answer1Array = new int[2];
         int[] answer2Array = new int[2];
         if (xFirst1 == 0) {
@@ -108,12 +104,8 @@ public class FactorizationBolt extends Bolt {
         return stringBuilder;
     }
 
-//    @Override
-//    public ComputationFragment getLayoutFragment() {
-//        return null;
-//    }
 
-    public String getParsedAnswer(ArrayList<String> parsedArray) {
+    private String getParsedAnswer(ArrayList<String> parsedArray) {
         String parsed = "";
         for (int i = 0; i < parsedArray.size(); i++) {
             parsed += parsedArray.get(i);
@@ -122,7 +114,7 @@ public class FactorizationBolt extends Bolt {
         return parsed;
     }
 
-    public ArrayList<String> parseArrayFactors(int[] answer1Array, int[] answer2Array) {
+    private ArrayList<String> parseArrayFactors(int[] answer1Array, int[] answer2Array) {
         ArrayList<String> quadArray = new ArrayList<String>();
         quadArray.add(String.valueOf(answer1Array[0] * answer2Array[0]));
         quadArray.add(String.valueOf(answer1Array[0] * answer2Array[1]));
@@ -136,7 +128,7 @@ public class FactorizationBolt extends Bolt {
         return quadArray;
     }
 
-    public int[] parseStringFactors(String factorString) {
+    private int[] parseStringFactors(String factorString) {
         int[] stringFactorArray = new int[2];
         try {
             if (String.valueOf(factorString.charAt(0)).equals("x")) {
@@ -221,11 +213,7 @@ public class FactorizationBolt extends Bolt {
             firstFactorText.setText("");
             secondFactorText.setText("");
 
-            if (currentParsedAnswer.equals(parsedAnswer) || currentParsedAnswer2.equals(parsedAnswer)) {
-                return true;
-            } else {
-                return false;
-            }
+            return (currentParsedAnswer.equals(parsedAnswer) || currentParsedAnswer2.equals(parsedAnswer));
 
         } else {
             return false;

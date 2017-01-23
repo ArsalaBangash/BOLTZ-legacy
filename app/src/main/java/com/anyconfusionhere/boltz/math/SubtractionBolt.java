@@ -6,7 +6,6 @@ import android.widget.TextView;
 import com.anyconfusionhere.boltz.R;
 import com.anyconfusionhere.boltz.Storm;
 import com.anyconfusionhere.boltz.StormPresenter;
-import com.anyconfusionhere.boltz.fragments.ComputationFragment;
 
 public class SubtractionBolt extends Bolt {
 

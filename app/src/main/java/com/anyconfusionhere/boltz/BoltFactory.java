@@ -14,9 +14,9 @@ import com.anyconfusionhere.boltz.math.MultiplicationBolt;
 import com.anyconfusionhere.boltz.math.RootBolt;
 import com.anyconfusionhere.boltz.math.SubtractionBolt;
 
-public class BoltFactory {
+class BoltFactory {
 
-    public static Bolt createBolt(String boltType, Storm storm) {
+    static Bolt createBolt(String boltType, Storm storm) {
         if (boltType.equals("Addition")) {
             return new AdditionBolt(storm);
         }

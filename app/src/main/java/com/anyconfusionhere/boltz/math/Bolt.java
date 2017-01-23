@@ -6,7 +6,6 @@ import android.widget.TextView;
 import com.anyconfusionhere.boltz.R;
 import com.anyconfusionhere.boltz.Storm;
 import com.anyconfusionhere.boltz.StormPresenter;
-import com.anyconfusionhere.boltz.fragments.ComputationFragment;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -14,7 +13,7 @@ import java.util.Random;
 public abstract class Bolt {
     HashMap<Integer, Integer> exponentMap;
     int layoutResource;
-    TextView currentAnswer;
+    private TextView currentAnswer;
     SpannableStringBuilder question;
 
     public Bolt(Storm newStormActivity) {
@@ -49,7 +48,7 @@ public abstract class Bolt {
 
 //    public abstract ComputationFragment getLayoutFragment();
 
-    public String slice_end(String s, int endIndex) {
+    String slice_end(String s, int endIndex) {
         if (endIndex < 0) endIndex = s.length() + endIndex;
         return s.substring(0, endIndex);
     }

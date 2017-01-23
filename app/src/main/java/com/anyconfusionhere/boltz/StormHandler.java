@@ -11,12 +11,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
 
-public class StormHandler extends Observable {
+class StormHandler extends Observable {
     private List boltsList = new ArrayList();
-    Storm stormActivity;
-    Bolt bolt;
+    private Storm stormActivity;
+    private Bolt bolt;
 
-    public StormHandler(Storm newStormActivity) throws NoSuchFieldException, IllegalAccessException {
+    StormHandler(Storm newStormActivity) throws NoSuchFieldException, IllegalAccessException {
         stormActivity = newStormActivity;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(stormActivity);
         Resources res = stormActivity.getResources();
@@ -35,7 +35,7 @@ public class StormHandler extends Observable {
         return bolt;
     }
 
-    public void handleBolt() {
+    void handleBolt() {
         Collections.shuffle(boltsList);
         bolt = BoltFactory.createBolt((String) boltsList.get(0), stormActivity);
         this.setChanged();

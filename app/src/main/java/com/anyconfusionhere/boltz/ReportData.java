@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * A Singleton class that contains final report data from the Math Practice storm
  */
-public class ReportData {
+class ReportData {
 
     private static ReportData reportInstance = new ReportData();
     private ArrayList<String[]> reports = new ArrayList<>();
@@ -20,7 +20,7 @@ public class ReportData {
      *
      * @return The singleton instance of the ReportData class
      */
-    public static ReportData getReportData() {
+    static ReportData getReportData() {
         return reportInstance;
     }
 
@@ -33,14 +33,14 @@ public class ReportData {
      * @param timeTaken The time taken on the question
      * @param attempts  The attempts on the question
      */
-    public void inputReportData(String question, String answer, String timeTaken, String attempts) {
+    void inputReportData(String question, String answer, String timeTaken, String attempts) {
 
         String[] reportDataArray = {question, answer, timeTaken, attempts};
         reports.add(questionNum, reportDataArray);
         questionNum++;
     }
 
-    public int getReportSize() {
+    int getReportSize() {
         return reports.size();
     }
 
@@ -52,7 +52,7 @@ public class ReportData {
      * @param questionIndex The question number to get the data from
      * @return A character sequence representation of the question's data
      */
-    public StringBuilder getQuestionReport(int questionIndex) {
+    StringBuilder getQuestionReport(int questionIndex) {
         String[] reportDataArray = reports.get(questionIndex);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Question: " + reportDataArray[0]);

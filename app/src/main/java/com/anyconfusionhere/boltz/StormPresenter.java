@@ -41,6 +41,8 @@ public class StormPresenter implements Observer {
         endScreenIntent = new Intent(storm, EndScreen.class);
         timer = (Chronometer) storm.findViewById(R.id.timeTaken);
         questionsLeft = (TextView) storm.findViewById(R.id.questionsLeft);
+
+
         questionFrame = (FrameLayout) storm.findViewById(R.id.problemContainer);
         inputFrame = (FrameLayout) storm.findViewById(R.id.input_container);
         factorProblem = storm.getLayoutInflater().inflate(R.layout.factorisation_problem, null);

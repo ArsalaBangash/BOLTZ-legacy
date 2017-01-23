@@ -8,15 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportViewHolder> {
+class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportViewHolder> {
     private int numItems;
     final private ListItemClickListener listItemClickListener;
 
-    public interface ListItemClickListener {
+    interface ListItemClickListener {
         void onListClick(int clickedItemIndex);
     }
 
-    public ReportAdapter(int numberOfItems, ListItemClickListener newListItemClickListener) {
+    ReportAdapter(int numberOfItems, ListItemClickListener newListItemClickListener) {
         numItems = numberOfItems;
         listItemClickListener = newListItemClickListener;
     }
@@ -31,9 +31,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
         int layoutIdForListItem = R.layout.list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(layoutIdForListItem, viewGroup, false);
-        ReportViewHolder viewHolder = new ReportViewHolder(view);
-
-        return viewHolder;
+        return new ReportViewHolder(view);
     }
 
     /**
@@ -59,7 +57,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
          * Constructor for our ViewHolder. Within this constructor, we get a reference to our
          * TextViews and set an onClickListener to listen for clicks
          */
-        public ReportViewHolder(View itemView) {
+        ReportViewHolder(View itemView) {
             super(itemView);
             listItemNumberView = (TextView) itemView.findViewById(R.id.item_text);
             itemView.setOnClickListener(this);
