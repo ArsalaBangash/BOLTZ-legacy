@@ -9,9 +9,8 @@ import com.anyconfusionhere.boltz.StormPresenter;
 
 public class AdditionBolt extends Bolt {
 
-    public AdditionBolt(Storm storm) {
-        super(storm);
-        layoutResource = R.layout.activity_storm;
+    public AdditionBolt(Storm newStormActivity) {
+        super(newStormActivity);
     }
 
     public SpannableStringBuilder produceQuestion() {

@@ -11,7 +11,6 @@ public class ModulusBolt extends Bolt {
 
     public ModulusBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_storm;
     }
 
     @Override

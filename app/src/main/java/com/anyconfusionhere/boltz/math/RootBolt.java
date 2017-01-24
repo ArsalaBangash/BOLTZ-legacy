@@ -15,7 +15,6 @@ public class RootBolt extends Bolt {
 
     public RootBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_storm;
     }
 
     @Override

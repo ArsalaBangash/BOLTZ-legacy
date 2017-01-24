@@ -33,9 +33,7 @@ public class Report extends AppCompatActivity implements ReportAdapter.ListItemC
         reportRecycler.setAdapter(reportAdapter);
     }
 
+
     @Override
-    public void onListClick(int clickedItemIndex) {
-        Toast toast = Toast.makeText(this, "Hello", Toast.LENGTH_SHORT);
-        toast.show();
-    }
+    public void onListClick(int clickedItemIndex) {}
 }

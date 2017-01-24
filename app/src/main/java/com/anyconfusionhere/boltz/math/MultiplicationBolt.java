@@ -11,7 +11,6 @@ public class MultiplicationBolt extends Bolt {
 
     public MultiplicationBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_storm;
     }
 
     @Override

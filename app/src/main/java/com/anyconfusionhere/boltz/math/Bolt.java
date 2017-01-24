@@ -12,7 +12,6 @@ import java.util.Random;
 
 public abstract class Bolt {
     HashMap<Integer, Integer> exponentMap;
-    int layoutResource;
     private TextView currentAnswer;
     SpannableStringBuilder question;
 
@@ -38,15 +37,13 @@ public abstract class Bolt {
 
     public abstract SpannableStringBuilder produceQuestion();
 
+    /**
+     * Returns the answer to the current Bolt
+     * @return The answer to the current Bolt
+     */
     public String getAnswer() {
         return answertoReturn;
     }
-
-    public int getLayoutResource() {
-        return layoutResource;
-    }
-
-//    public abstract ComputationFragment getLayoutFragment();
 
     String slice_end(String s, int endIndex) {
         if (endIndex < 0) endIndex = s.length() + endIndex;
@@ -62,18 +59,31 @@ public abstract class Bolt {
         }
     }
 
+
     public void push(String toPush) {
         if (currentAnswer.getText().toString().length() < 8) {
             currentAnswer.setText(currentAnswer.getText() + toPush);
         }
     }
 
+    /**
+     * Depending on it's type, this function will have a bolt bring it's requisite input and
+     * question views to the front of the storm activity. This will allow Bolts to have user
+     * interfaces suited to their mathematical needs. In addition to setting the necessary UI,
+     * this function also returns the question to be presented by the Bolt.
+     * @param stormPresenter The Presenter which controls the storm activity
+     * @return The question to be returned.
+     */
     public abstract SpannableStringBuilder presentQuestion(StormPresenter stormPresenter);
+
 
     public Boolean check() {
         return answertoReturn.equals(String.valueOf(currentAnswer.getText()));
     }
 
+    /**
+     * Erases the user's current answer
+     */
     public void erase() {
         currentAnswer.setText("");
     }

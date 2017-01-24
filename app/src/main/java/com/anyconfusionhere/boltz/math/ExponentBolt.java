@@ -15,7 +15,6 @@ public class ExponentBolt extends Bolt {
 
     public ExponentBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_storm;
     }
 
     @Override

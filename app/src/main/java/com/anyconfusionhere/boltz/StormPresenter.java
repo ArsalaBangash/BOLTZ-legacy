@@ -4,20 +4,17 @@ package com.anyconfusionhere.boltz;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.text.SpannableStringBuilder;
-import android.util.Log;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.anyconfusionhere.boltz.math.Bolt;
-
 import java.util.Observable;
 import java.util.Observer;
 
 public class StormPresenter implements Observer {
     public SpannableStringBuilder question;
     private TextView questionsLeft;
-
     private String answer;
     private Bolt bolt;
     public Storm storm;
@@ -43,6 +40,10 @@ public class StormPresenter implements Observer {
         questionsLeft = (TextView) storm.findViewById(R.id.questionsLeft);
 
 
+        /*
+        Creates the frames for question and input, and inflates the layouts from xml files for
+        each type of input and question, adding them to the frames
+         */
         questionFrame = (FrameLayout) storm.findViewById(R.id.problemContainer);
         inputFrame = (FrameLayout) storm.findViewById(R.id.input_container);
         factorProblem = storm.getLayoutInflater().inflate(R.layout.factorisation_problem, null);
@@ -55,6 +56,7 @@ public class StormPresenter implements Observer {
         inputFrame.addView(calcInput);
 
 
+        //Starts timer and loads audio resources
         timer.start();
         timer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
 
@@ -69,9 +71,16 @@ public class StormPresenter implements Observer {
 
     }
 
-    public Boolean check() {
+    /**
+     * This function is called when the check operator is pressed. If the answer for a particular
+     * question was correct, then the question's data is stored for the report; otherwise the player
+     * receives an incorrect sound.
+     * @return
+     */
+    Boolean check() {
         currentQuestionsAttempts++;
         Boolean correctCheck = bolt.check();
+
         if (correctCheck) {
             playCorrect();
             questions--;
@@ -82,25 +91,19 @@ public class StormPresenter implements Observer {
                     String.valueOf(currentQuestionsAttempts));
             currentQuestionsAttempts = 0;
             currentQuestionTimeTaken = 0;
-        } else {
-            playIncorrect();
-        }
+        } else {playIncorrect();}
 
-        if (questions == 0) {
-            endScreenIntent.putExtra(Intent.EXTRA_TEXT, timer.getContentDescription());
-            storm.startActivity(endScreenIntent);
-        }
+        handleQuestions();
         bolt.erase();
-        questionsLeft.setText(Integer.toString(questions));
         return correctCheck;
     }
 
     public void presentQuestion() {
-        Log.d("Present bolt of type: ", String.valueOf(bolt.getClass()));
         question = bolt.presentQuestion(this);
         answer = bolt.getAnswer();
-
     }
+
+
 
     @Override
     public void update(Observable o, Object arg) {
@@ -118,16 +121,38 @@ public class StormPresenter implements Observer {
         bolt.push(toPush);
     }
 
+    /**
+     * Plays the correct sound when the user correctly answers a question.
+     */
     private void playCorrect() {
         correctMP.start();
     }
 
+    /**
+     * Plays the incorrect sound when the user incorrectly answers a question.
+     */
     private void playIncorrect() {
         inCorrectMP.start();
     }
 
+    /**
+     * Called when the Android back button is pressed. Stops the timer and sends the user back to the
+     * main menu
+     */
     void onBack() {
         timer.stop();
         storm.startActivity(startIntent);
+    }
+
+    /**
+     * Called every time the check function is executed. The function displays the number of questions
+     * left and starts the end screen if there are no questions remaining.
+     */
+    private void handleQuestions(){
+        questionsLeft.setText(Integer.toString(questions));
+        if (questions == 0) {
+            endScreenIntent.putExtra(Intent.EXTRA_TEXT, timer.getContentDescription());
+            storm.startActivity(endScreenIntent);
+        }
     }
 }

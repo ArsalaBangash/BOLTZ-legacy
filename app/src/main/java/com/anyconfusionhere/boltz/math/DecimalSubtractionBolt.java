@@ -13,7 +13,6 @@ public class DecimalSubtractionBolt extends Bolt {
 
     public DecimalSubtractionBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_storm;
     }
 
     @Override

@@ -11,8 +11,8 @@ public class SubtractionBolt extends Bolt {
 
     public SubtractionBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_storm;
     }
+
 
     @Override
     public SpannableStringBuilder produceQuestion() {
@@ -24,6 +24,7 @@ public class SubtractionBolt extends Bolt {
         answertoReturn = String.valueOf(answer);
         return spannableStringBuilder;
     }
+
     @Override
     public SpannableStringBuilder presentQuestion(StormPresenter stormPresenter) {
         question = this.produceQuestion();

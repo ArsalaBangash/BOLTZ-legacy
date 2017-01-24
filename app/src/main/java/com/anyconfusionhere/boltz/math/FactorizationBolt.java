@@ -184,7 +184,6 @@ public class FactorizationBolt extends Bolt {
         stormPresenter.questionFrame.bringChildToFront(stormPresenter.factorProblem);
         stormPresenter.inputFrame.bringChildToFront(stormPresenter.algInput);
         ((TextView) stormPresenter.questionFrame.findViewById(R.id.factoriseProblem)).setText(question);
-
         return question;
     }
 

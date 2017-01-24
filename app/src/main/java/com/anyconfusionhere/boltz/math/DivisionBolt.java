@@ -13,7 +13,6 @@ public class DivisionBolt extends Bolt {
 
     public DivisionBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_storm;
     }
 
     @Override

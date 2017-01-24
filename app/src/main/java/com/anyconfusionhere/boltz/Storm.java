@@ -40,7 +40,6 @@ public class Storm extends AppCompatActivity {
 
     public void check(View view) {
         if (stormPresenter.check()) {
-            Log.d("NEW BOLT?", "YES");
             stormHandler.handleBolt();
         }
     }

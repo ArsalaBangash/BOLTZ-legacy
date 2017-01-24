@@ -2,18 +2,15 @@ package com.anyconfusionhere.boltz.math;
 
 import android.text.SpannableStringBuilder;
 import android.widget.TextView;
-
 import com.anyconfusionhere.boltz.R;
 import com.anyconfusionhere.boltz.Storm;
 import com.anyconfusionhere.boltz.StormPresenter;
-
 import java.text.DecimalFormat;
 
 public class DecimalAdditionBolt extends Bolt {
 
     public DecimalAdditionBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_storm;
     }
 
     @Override

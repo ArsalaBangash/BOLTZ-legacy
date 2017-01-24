@@ -14,7 +14,6 @@ public class LogBolt extends Bolt {
 
     public LogBolt(Storm storm) {
         super(storm);
-        layoutResource = R.layout.activity_storm;
     }
 
     @Override
