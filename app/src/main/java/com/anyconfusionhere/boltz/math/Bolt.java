@@ -11,10 +11,11 @@ import java.util.HashMap;
 import java.util.Random;
 
 public abstract class Bolt {
+    static Random randomGenerator = new Random();
     HashMap<Integer, Integer> exponentMap;
-    private TextView currentAnswer;
     SpannableStringBuilder question;
-
+    String answertoReturn;
+    private TextView currentAnswer;
     public Bolt(Storm newStormActivity) {
         currentAnswer = (TextView) newStormActivity.stormPresenter.questionFrame.findViewById(R.id.currentAnswer);
         exponentMap = new HashMap<>();
@@ -32,13 +33,11 @@ public abstract class Bolt {
         exponentMap.put(13, 1);
     }
 
-    static Random randomGenerator = new Random();
-    String answertoReturn;
-
     public abstract SpannableStringBuilder produceQuestion();
 
     /**
      * Returns the answer to the current Bolt
+     *
      * @return The answer to the current Bolt
      */
     public String getAnswer() {
@@ -71,6 +70,7 @@ public abstract class Bolt {
      * question views to the front of the storm activity. This will allow Bolts to have user
      * interfaces suited to their mathematical needs. In addition to setting the necessary UI,
      * this function also returns the question to be presented by the Bolt.
+     *
      * @param stormPresenter The Presenter which controls the storm activity
      * @return The question to be returned.
      */

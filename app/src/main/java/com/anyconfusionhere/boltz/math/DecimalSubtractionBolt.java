@@ -30,6 +30,7 @@ public class DecimalSubtractionBolt extends Bolt {
         spannableStringBuilder.append(Double.toString(c) + "-" + Double.toString(d) + " =");
         return spannableStringBuilder;
     }
+
     @Override
     public SpannableStringBuilder presentQuestion(StormPresenter stormPresenter) {
         question = this.produceQuestion();

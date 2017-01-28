@@ -9,12 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportViewHolder> {
-    private int numItems;
     final private ListItemClickListener listItemClickListener;
-
-    interface ListItemClickListener {
-        void onListClick(int clickedItemIndex);
-    }
+    private int numItems;
 
     ReportAdapter(int numberOfItems, ListItemClickListener newListItemClickListener) {
         numItems = numberOfItems;
@@ -47,6 +43,10 @@ class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportViewHolder>
     @Override
     public int getItemCount() {
         return numItems;
+    }
+
+    interface ListItemClickListener {
+        void onListClick(int clickedItemIndex);
     }
 
     class ReportViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

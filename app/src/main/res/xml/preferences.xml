@@ -1,103 +1,102 @@
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="Addition"
-        android:title="Addition"
         android:id="@+id/AdditionPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="Addition"
+        android:summaryOff="Addition questions disabled during the Storm"
         android:summaryOn="Addition questions enabled during the Storm"
-        android:summaryOff="Addition questions disabled during the Storm"/>
+        android:title="Addition" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="Subtraction"
-        android:title="Subtraction"
         android:id="@+id/SubtractionPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="Subtraction"
+        android:summaryOff="Subtraction questions disabled during the Storm"
         android:summaryOn="Subtraction questions enabled during the Storm"
-        android:summaryOff="Subtraction questions disabled during the Storm"/>
+        android:title="Subtraction" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="Multiplication"
-        android:title="Multiplication"
         android:id="@+id/MultiplicationPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="Multiplication"
+        android:summaryOff="Multiplication questions disabled during the Storm"
         android:summaryOn="Multiplication questions enabled during the Storm"
-        android:summaryOff="Multiplication questions disabled during the Storm"/>
+        android:title="Multiplication" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="Division"
-        android:title="Division"
         android:id="@+id/DivisionPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="Division"
+        android:summaryOff="Division questions disabled during the Storm"
         android:summaryOn="Division questions enabled during the Storm"
-        android:summaryOff="Division questions disabled during the Storm"/>
+        android:title="Division" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="Log"
-        android:title="Logarithms"
         android:id="@+id/LogPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="Log"
+        android:summaryOff="Logarithmic questions disabled during the Storm"
         android:summaryOn="Logarithmic questions enabled during the Storm"
-        android:summaryOff="Logarithmic questions disabled during the Storm"/>
+        android:title="Logarithms" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="Exponents"
-        android:title="Exponents"
         android:id="@+id/ExponentsPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="Exponents"
+        android:summaryOff="Exponential questions disabled during the Storm"
         android:summaryOn="Exponential questions enabled during the Storm"
-        android:summaryOff="Exponential questions disabled during the Storm"/>
+        android:title="Exponents" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="Root"
-        android:title="Roots"
         android:id="@+id/RootPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="Root"
+        android:summaryOff="Root questions disabled during the Storm"
         android:summaryOn="Root questions enabled during the Storm"
-        android:summaryOff="Root questions disabled during the Storm"/>
+        android:title="Roots" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="Modulus"
-        android:title="Modulus"
         android:id="@+id/ModulusPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="Modulus"
+        android:summaryOff="Modulus questions disabled during the Storm"
         android:summaryOn="Modulus questions enabled during the Storm"
-        android:summaryOff="Modulus questions disabled during the Storm"/>
+        android:title="Modulus" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="DecimalAddition"
-        android:title="Decimal Addition"
         android:id="@+id/DecimalAdditionPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="DecimalAddition"
+        android:summaryOff="Addition questions involving decimals disabled during the Storm"
         android:summaryOn="Addition questions involving decimals enabled during the Storm"
-        android:summaryOff="Addition questions involving decimals disabled during the Storm"/>
+        android:title="Decimal Addition" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="DecimalSubtraction"
-        android:title="Decimal Subtraction"
         android:id="@+id/DecimalSubtractionPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="DecimalSubtraction"
+        android:summaryOff="Subtraction questions involving decimals disabled during the Storm"
         android:summaryOn="Subtraction questions involving decimals enabled during the Storm"
-        android:summaryOff="Subtraction questions involving decimals disabled during the Storm"/>
+        android:title="Decimal Subtraction" />
 
     <SwitchPreference
-        android:fontFamily="sans-serif-light"
-        android:defaultValue="true"
-        android:key="Factorization"
-        android:title="Factorization"
         android:id="@+id/FactorizationPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="Factorization"
+        android:summaryOff="Factorization questions disabled during the Storm"
         android:summaryOn="Factorization questions enabled during the Storm"
-        android:summaryOff="Factorization questions disabled during the Storm"/>
+        android:title="Factorization" />
 
 </PreferenceScreen>

@@ -40,6 +40,7 @@ public class ExponentBolt extends Bolt {
         answertoReturn = String.valueOf(answer);
         return spannableStringBuilder;
     }
+
     @Override
     public SpannableStringBuilder presentQuestion(StormPresenter stormPresenter) {
         question = this.produceQuestion();

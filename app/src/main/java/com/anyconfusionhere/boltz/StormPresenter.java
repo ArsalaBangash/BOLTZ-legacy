@@ -8,26 +8,24 @@ import android.view.View;
 import android.widget.Chronometer;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
 import com.anyconfusionhere.boltz.math.Bolt;
+
 import java.util.Observable;
 import java.util.Observer;
 
 public class StormPresenter implements Observer {
     public SpannableStringBuilder question;
+    public Storm storm;
+    public FrameLayout inputFrame, questionFrame;
+    public View factorProblem, simpleProblem, calcInput, algInput;
     private TextView questionsLeft;
     private String answer;
     private Bolt bolt;
-    public Storm storm;
     private MediaPlayer correctMP, inCorrectMP;
     private int questions, currentQuestionsAttempts = 0, currentQuestionTimeTaken = 0;
     private Chronometer timer;
     private Intent startIntent, endScreenIntent;
-    public FrameLayout inputFrame, questionFrame;
-    public View factorProblem, simpleProblem, calcInput, algInput;
-
-
-
-
 
 
     public StormPresenter(Storm stormActivity) {
@@ -75,6 +73,7 @@ public class StormPresenter implements Observer {
      * This function is called when the check operator is pressed. If the answer for a particular
      * question was correct, then the question's data is stored for the report; otherwise the player
      * receives an incorrect sound.
+     *
      * @return
      */
     Boolean check() {
@@ -91,7 +90,9 @@ public class StormPresenter implements Observer {
                     String.valueOf(currentQuestionsAttempts));
             currentQuestionsAttempts = 0;
             currentQuestionTimeTaken = 0;
-        } else {playIncorrect();}
+        } else {
+            playIncorrect();
+        }
 
         handleQuestions();
         bolt.erase();
@@ -102,7 +103,6 @@ public class StormPresenter implements Observer {
         question = bolt.presentQuestion(this);
         answer = bolt.getAnswer();
     }
-
 
 
     @Override
@@ -148,7 +148,7 @@ public class StormPresenter implements Observer {
      * Called every time the check function is executed. The function displays the number of questions
      * left and starts the end screen if there are no questions remaining.
      */
-    private void handleQuestions(){
+    private void handleQuestions() {
         questionsLeft.setText(Integer.toString(questions));
         if (questions == 0) {
             endScreenIntent.putExtra(Intent.EXTRA_TEXT, timer.getContentDescription());

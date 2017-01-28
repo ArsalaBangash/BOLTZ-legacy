@@ -4,80 +4,80 @@
     android:id="@+id/activity_end_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.anyconfusionhere.boltz.EndScreen"
-    android:background="@color/colorWhite">
+    tools:context="com.anyconfusionhere.boltz.EndScreen">
 
 
     <Button
         android:id="@+id/playAgain"
-        android:fontFamily="sans-serif-light"
-        android:textAllCaps="false"
-        android:text="Play Again"
-        android:textColor="#FFFFFFFF"
-        android:textSize="30dp"
         android:layout_width="300dp"
         android:layout_height="75dp"
-        android:background="@drawable/button_style"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="155dp"
-        android:onClick="playAgain"></Button>
+        android:background="@drawable/button_style"
+        android:fontFamily="sans-serif-light"
+        android:onClick="playAgain"
+        android:text="Play Again"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFFFF"
+        android:textSize="30dp"></Button>
 
     <Button
         android:id="@+id/report"
-        android:textAllCaps="false"
-        android:fontFamily="sans-serif-light"
-        android:text="Report"
-        android:textColor="#FFFFFFFF"
-        android:textSize="30dp"
         android:layout_width="300dp"
         android:layout_height="75dp"
-        android:background="@drawable/button_style"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
-        android:onClick="startReport"></Button>
+        android:background="@drawable/button_style"
+        android:fontFamily="sans-serif-light"
+        android:onClick="startReport"
+        android:text="Report"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFFFF"
+        android:textSize="30dp"></Button>
 
     <Button
         android:id="@+id/mainMenu"
-        android:fontFamily="sans-serif-light"
-        android:textAllCaps="false"
-        android:text="Main Menu"
-        android:textColor="#FFFFFFFF"
-        android:textSize="30dp"
         android:layout_width="300dp"
         android:layout_height="75dp"
-        android:background="@drawable/button_style"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/report"
         android:layout_alignLeft="@+id/report"
         android:layout_alignStart="@+id/report"
-        android:onClick="mainMenu"></Button>
+        android:layout_below="@+id/report"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_style"
+        android:fontFamily="sans-serif-light"
+        android:onClick="mainMenu"
+        android:text="Main Menu"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFFFF"
+        android:textSize="30dp"></Button>
 
     <TextView
-        android:text="Well Done!"
-        android:fontFamily="sans-serif-light"
-        android:textSize="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:id="@+id/wellDoneText"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="Your time taken: "
-        android:fontFamily="sans-serif-light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Well Done!"
+        android:textSize="50dp" />
+
+    <TextView
         android:id="@+id/finalTime"
-        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/wellDoneText"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Your time taken: "
         android:textSize="15dp" />
 
 </RelativeLayout>

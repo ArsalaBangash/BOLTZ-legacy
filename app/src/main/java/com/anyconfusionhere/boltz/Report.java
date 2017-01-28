@@ -8,12 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Window;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Report extends AppCompatActivity implements ReportAdapter.ListItemClickListener {
-    Intent reportInit;
     private static final int NUM_REPORT_ITEMS = ReportData.getReportData().getReportSize();
-
+    Intent reportInit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +33,6 @@ public class Report extends AppCompatActivity implements ReportAdapter.ListItemC
 
 
     @Override
-    public void onListClick(int clickedItemIndex) {}
+    public void onListClick(int clickedItemIndex) {
+    }
 }

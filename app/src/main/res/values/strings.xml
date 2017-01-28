@@ -12,8 +12,7 @@
     <string name="DecimalSubtraction">5</string>
     <string name="Factorization">5</string>
 
-    <string-array
-        name="BoltsArray">
+    <string-array name="BoltsArray">
         <item>Addition</item>
         <item>Subtraction</item>
         <item>Multiplication</item>
