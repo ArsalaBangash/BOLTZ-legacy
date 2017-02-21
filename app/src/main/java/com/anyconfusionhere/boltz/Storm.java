@@ -38,7 +38,7 @@ public class Storm extends AppCompatActivity {
 
 
     public void check(View view) {
-        if (stormPresenter.check()) {
+        if (stormPresenter.check(view.getTag().toString())) {
             stormHandler.handleBolt();
         }
     }

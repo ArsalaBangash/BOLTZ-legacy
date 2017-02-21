@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">βOLTℤ</string>
-    <string name="Addition">10</string>
-    <string name="Subtraction">10</string>
-    <string name="Multiplication">8</string>
-    <string name="Division">8</string>
+    <string name="Addition">5</string>
+    <string name="Subtraction">5</string>
+    <string name="Multiplication">5</string>
+    <string name="Division">5</string>
     <string name="Log">5</string>
     <string name="Exponents">5</string>
     <string name="Root">5</string>
@@ -11,6 +11,9 @@
     <string name="DecimalAddition">5</string>
     <string name="DecimalSubtraction">5</string>
     <string name="Factorization">5</string>
+    <string name="DegreeTrigonometry">5</string>
+    <string name="RadianTrigonometry">5</string>
+    <string name="DecimalToBinary">5</string>
 
     <string-array name="BoltsArray">
         <item>Addition</item>
@@ -24,6 +27,27 @@
         <item>DecimalAddition</item>
         <item>DecimalSubtraction</item>
         <item>Factorization</item>
+        <item>DegreeTrigonometry</item>
+        <item>RadianTrigonometry</item>
+        <item>DecimalToBinary</item>
     </string-array>
+
+    <string name="Zero">0</string>
+    <string name="One">1</string>
+    <string name="Half"><sup>1</sup>/<sub>2</sub></string>
+    <string name="Root3">√3</string>
+    <string name="OneByRoot3"><sup>1</sup>/<sub>√3</sub></string>
+    <string name="Root2By2"><sup>√2</sup>/<sub>2</sub></string>
+    <string name="Root3By2"><sup>√3</sup>/<sub>2</sub></string>
+    <string name="NegOne">-1</string>
+    <string name="NegHalf">-<sup>1</sup>/<sub>2</sub></string>
+    <string name="NegRoot3">-√3</string>
+    <string name="NegOneByRoot3">-<sup>1</sup>/<sub>√3</sub></string>
+    <string name="NegRoot2By2">-<sup>√2</sup>/<sub>2</sub></string>
+    <string name="NegRoot3By2">-<sup>√3</sup>/<sub>2</sub></string>
+    <string name="Undefined">Undefined</string>
+
+
+
 
 </resources>

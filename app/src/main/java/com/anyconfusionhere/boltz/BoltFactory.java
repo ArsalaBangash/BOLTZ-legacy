@@ -5,12 +5,15 @@ import com.anyconfusionhere.boltz.math.AdditionBolt;
 import com.anyconfusionhere.boltz.math.Bolt;
 import com.anyconfusionhere.boltz.math.DecimalAdditionBolt;
 import com.anyconfusionhere.boltz.math.DecimalSubtractionBolt;
+import com.anyconfusionhere.boltz.math.DecimalToBinaryBolt;
+import com.anyconfusionhere.boltz.math.DegreeTrigonometry;
 import com.anyconfusionhere.boltz.math.DivisionBolt;
 import com.anyconfusionhere.boltz.math.ExponentBolt;
 import com.anyconfusionhere.boltz.math.FactorizationBolt;
 import com.anyconfusionhere.boltz.math.LogBolt;
 import com.anyconfusionhere.boltz.math.ModulusBolt;
 import com.anyconfusionhere.boltz.math.MultiplicationBolt;
+import com.anyconfusionhere.boltz.math.RadianTrigonometry;
 import com.anyconfusionhere.boltz.math.RootBolt;
 import com.anyconfusionhere.boltz.math.SubtractionBolt;
 
@@ -49,6 +52,15 @@ class BoltFactory {
         }
         if (boltType.equals("Factorization")) {
             return new FactorizationBolt(storm);
+        }
+        if (boltType.equals("DegreeTrigonometry")) {
+            return new DegreeTrigonometry(storm);
+        }
+        if (boltType.equals("RadianTrigonometry")) {
+            return new RadianTrigonometry(storm);
+        }
+        if (boltType.equals("DecimalToBinary")) {
+            return new DecimalToBinaryBolt(storm);
         }
         return new AdditionBolt(storm);
 

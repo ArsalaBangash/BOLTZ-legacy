@@ -15,7 +15,7 @@ public abstract class Bolt {
     HashMap<Integer, Integer> exponentMap;
     SpannableStringBuilder question;
     String answertoReturn;
-    private TextView currentAnswer;
+    protected TextView currentAnswer;
     public Bolt(Storm newStormActivity) {
         currentAnswer = (TextView) newStormActivity.stormPresenter.questionFrame.findViewById(R.id.currentAnswer);
         exponentMap = new HashMap<>();
@@ -77,7 +77,7 @@ public abstract class Bolt {
     public abstract SpannableStringBuilder presentQuestion(StormPresenter stormPresenter);
 
 
-    public Boolean check() {
+    public Boolean check(String tagToCheck) {
         return answertoReturn.equals(String.valueOf(currentAnswer.getText()));
     }
 

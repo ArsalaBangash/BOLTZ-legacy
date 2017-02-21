@@ -18,7 +18,8 @@ public class StormPresenter implements Observer {
     public SpannableStringBuilder question;
     public Storm storm;
     public FrameLayout inputFrame, questionFrame;
-    public View factorProblem, simpleProblem, calcInput, algInput;
+    public View factorProblem, simpleProblem, calcInput, algInput, multipleChoiceInput, binaryInput
+            , decimalToBinaryProblem;
     private TextView questionsLeft;
     private String answer;
     private Bolt bolt;
@@ -30,7 +31,7 @@ public class StormPresenter implements Observer {
 
     public StormPresenter(Storm stormActivity) {
 
-        questions = 8;
+        questions = 10;
         storm = stormActivity;
         startIntent = new Intent(storm, Start.class);
         endScreenIntent = new Intent(storm, EndScreen.class);
@@ -46,12 +47,19 @@ public class StormPresenter implements Observer {
         inputFrame = (FrameLayout) storm.findViewById(R.id.input_container);
         factorProblem = storm.getLayoutInflater().inflate(R.layout.factorisation_problem, null);
         simpleProblem = storm.getLayoutInflater().inflate(R.layout.simple_problem, null);
+        decimalToBinaryProblem = storm.getLayoutInflater().inflate(R.layout.dec2binary_problem, null);
+        binaryInput = storm.getLayoutInflater().inflate(R.layout.binary_input, null);
         calcInput = storm.getLayoutInflater().inflate(R.layout.calculator_input, null);
         algInput = storm.getLayoutInflater().inflate(R.layout.algebra_input, null);
+        multipleChoiceInput = storm.getLayoutInflater().inflate(R.layout.multiple_choice_input, null);
         questionFrame.addView(factorProblem);
         questionFrame.addView(simpleProblem);
         inputFrame.addView(algInput);
         inputFrame.addView(calcInput);
+        inputFrame.addView(multipleChoiceInput);
+        questionFrame.addView(decimalToBinaryProblem);
+
+        inputFrame.addView(binaryInput);
 
 
         //Starts timer and loads audio resources
@@ -76,9 +84,9 @@ public class StormPresenter implements Observer {
      *
      * @return
      */
-    Boolean check() {
+    Boolean check(String tagToCheck) {
         currentQuestionsAttempts++;
-        Boolean correctCheck = bolt.check();
+        Boolean correctCheck = bolt.check(tagToCheck);
 
         if (correctCheck) {
             playCorrect();

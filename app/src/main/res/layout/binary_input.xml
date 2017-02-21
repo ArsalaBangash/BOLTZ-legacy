@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <GridLayout
+        android:id="@+id/calculatorGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff"
+        android:layout_marginTop="40dp">
+
+        <ImageButton
+            android:id="@+id/backSpace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="0"
+            android:layout_rowSpan="1"
+            android:layout_rowWeight="1"
+            android:background="@drawable/grid_button_style"
+            android:onClick="pull"
+            android:src="@drawable/backspace" />
+
+
+
+        <Button
+            android:id="@+id/oneButton"
+            android:layout_height="200dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_row="0"
+            android:layout_rowSpan="2"
+            android:layout_rowWeight="2"
+            android:background="@drawable/grid_button_style"
+            android:onClick="push"
+            android:tag="1"
+            android:text="1"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp" />
+
+
+
+        <ImageButton
+            android:id="@+id/lockIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="1"
+            android:layout_rowSpan="3"
+            android:layout_rowWeight="1"
+            android:background="@drawable/grid_button_style"
+            android:onClick="check"
+            android:src="@drawable/check"
+            android:tag="Check"/>
+
+        <Button
+            android:id="@+id/zeroButton"
+            android:layout_height="200dp"
+            android:layout_column="0"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="0"
+            android:layout_rowSpan="2"
+            android:layout_rowWeight="2"
+            android:background="@drawable/grid_button_style"
+            android:onClick="push"
+            android:tag="0"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp" />
+
+
+    </GridLayout>
+
+</RelativeLayout>

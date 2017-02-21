@@ -32,5 +32,4 @@ public class AdditionBolt extends Bolt {
         return question;
     }
 
-
 }

@@ -99,4 +99,32 @@
         android:summaryOn="Factorization questions enabled during the Storm"
         android:title="Factorization" />
 
+    <SwitchPreference
+        android:id="@+id/DegreeTrigPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="DegreeTrigonometry"
+        android:summaryOff="Trigonometry questions involving degrees disabled during the Storm"
+        android:summaryOn="Trigonometry questions involving degrees enabled during the Storm"
+        android:title="Degree Trigonometry" />
+
+    <SwitchPreference
+        android:id="@+id/RadianTrigPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="RadianTrigonometry"
+        android:summaryOff="Trigonometry questions involving radians disabled during the Storm"
+        android:summaryOn="Trigonometry questions involving radians enabled during the Storm"
+        android:title="Radian Trigonometry" />
+
+    <SwitchPreference
+        android:id="@+id/DecToBinaryPref"
+        android:defaultValue="true"
+        android:fontFamily="sans-serif-light"
+        android:key="DecimalToBinary"
+        android:summaryOff="Decimal to Binary conversion questions disabled during the Storm"
+        android:summaryOn="Decimal to Binary conversion questions enabled during the Storm"
+        android:title="Decimal to Binary Conversion" />
+
+
 </PreferenceScreen>

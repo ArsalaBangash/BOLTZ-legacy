@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+
+
+    <GridLayout
+        android:id="@+id/calculatorGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff">
+
+
+        <Button
+            android:id="@+id/optionA"
+            android:layout_height="120dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:background="@drawable/grid_button_style"
+            android:onClick="check"
+            android:tag="A"
+            android:text="A"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/optionB"
+            android:layout_height="120dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:background="@drawable/grid_button_style"
+            android:onClick="check"
+            android:tag="B"
+            android:text="B"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/optionC"
+            android:layout_height="120dp"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:background="@drawable/grid_button_style"
+            android:onClick="check"
+            android:tag="C"
+            android:text="C"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/optionD"
+            android:layout_height="120dp"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:background="@drawable/grid_button_style"
+            android:onClick="check"
+            android:tag="D"
+            android:text="D"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp" />
+
+
+    </GridLayout>
+
+
+</RelativeLayout>
+

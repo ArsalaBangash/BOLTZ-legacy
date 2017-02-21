@@ -215,7 +215,8 @@
             android:layout_rowWeight="1"
             android:background="@drawable/grid_button_style"
             android:onClick="check"
-            android:src="@drawable/check" />
+            android:src="@drawable/check"
+            android:tag="Check"/>
 
         <Button
             android:id="@+id/zeroButton"

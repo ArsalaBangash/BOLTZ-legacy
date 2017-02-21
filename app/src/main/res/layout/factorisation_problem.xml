@@ -29,7 +29,7 @@
         android:layout_toEndOf="@+id/middleBracket"
         android:layout_toRightOf="@+id/middleBracket"
         android:fontFamily="sans-serif-light"
-        android:text="x+3"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="30dp"
         android:visibility="visible" />
@@ -99,7 +99,7 @@
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
         android:fontFamily="sans-serif-light"
-        android:text="x+9"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="30dp"
         android:visibility="visible" />

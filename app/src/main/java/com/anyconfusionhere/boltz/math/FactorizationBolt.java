@@ -198,7 +198,7 @@ public class FactorizationBolt extends Bolt {
     }
 
     @Override
-    public Boolean check() {
+    public Boolean check(String tagToCheck) {
 
         charactersEntered = 0;
         if (firstFactorText.getText().length() == 3 && secondFactorText.getText().length() == 3) {

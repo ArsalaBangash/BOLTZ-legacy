@@ -3,8 +3,10 @@ package com.anyconfusionhere.boltz;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 public class Start extends AppCompatActivity {
 
@@ -13,7 +15,6 @@ public class Start extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
-
     }
 
     /**
